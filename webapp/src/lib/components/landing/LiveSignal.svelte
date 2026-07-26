@@ -22,13 +22,13 @@
 </script>
 
 <section id="sources">
-  <Gutter num="03" label="What it learns from">
+  <Gutter num="04" label="What it learns from">
     <div class="grid">
       <div>
-        <h2 class="section-heading">The simulation is built from the places work already happens.</h2>
+        <h2 class="section-heading">The environment learns from the places work already happens.</h2>
         <p class="section-copy">
-          Faraday connects the formal systems with the informal operating knowledge people use every day. The result is
-          not a dashboard. It is a business environment with rules, memory, consequences, and realistic edge cases.
+          Faraday combines formal system state with the informal knowledge operators use every day. As workflows,
+          policies, and conditions change, the environment changes with them.
         </p>
       </div>
 

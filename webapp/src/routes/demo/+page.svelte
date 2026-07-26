@@ -3,8 +3,11 @@
 </script>
 
 <svelte:head>
-  <title>FaradayStack — demo</title>
-  <meta name="description" content="A 12-second loop showing how FaradayStack ships customer requests as PRs." />
+  <title>Enterprise RLE Training - Faraday</title>
+  <meta
+    name="description"
+    content="See how Faraday turns enterprise systems of record into an RLE environment, then trains a separate agent against it before production."
+  />
 </svelte:head>
 
 <Demo />

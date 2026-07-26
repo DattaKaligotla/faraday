@@ -3,31 +3,31 @@
 
   const actions = [
     {
-      name: "Train",
-      detail: "Let autonomous workers learn inside an RL environment before they receive production authority.",
+      name: "Learn",
+      detail: "Let agents discover the operation safely before they receive production authority.",
     },
     {
       name: "Stress test",
       detail: "Run disruptions, shortages, equipment failures, urgent orders, and messy handoffs.",
     },
     {
-      name: "Compare",
-      detail: "Measure different agents and robots against the same business scenarios and constraints.",
+      name: "Measure",
+      detail: "Score every decision against service level, cost, safety, latency, and policy.",
     },
     {
-      name: "Approve",
-      detail: "Move only the systems that meet operational thresholds into deployment.",
+      name: "Gate",
+      detail: "Grant authority only when a system meets operational thresholds across known failure modes.",
     },
   ];
 </script>
 
 <section id="workspace">
-  <Gutter num="04" label="What teams do">
+  <Gutter num="05" label="What teams do">
     <div class="intro">
-      <h2 class="section-heading">Practice the work before changing the work.</h2>
+      <h2 class="section-heading">Let autonomy encounter the bad day before the real one happens.</h2>
       <p class="section-copy">
-        Faraday gives operations, automation, and AI teams one shared place to train and evaluate autonomous workers
-        before they affect customers, employees, inventory, equipment, or service levels.
+        Start with a real workflow. Introduce supplier delays, equipment failures, urgent orders, incomplete data, and
+        messy human handoffs. See not only whether the system finishes—but whether it makes the right tradeoffs.
       </p>
     </div>
 

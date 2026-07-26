@@ -37,7 +37,10 @@ async function establishSession(user: User): Promise<void> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ idToken }),
   });
-  if (!r.ok) throw new Error("Failed to establish session");
+  if (!r.ok) {
+    const body = (await r.json().catch(() => null)) as { message?: string } | null;
+    throw new Error(body?.message || "Failed to establish session");
+  }
 }
 
 export async function registerUser(email: string, password: string): Promise<User> {

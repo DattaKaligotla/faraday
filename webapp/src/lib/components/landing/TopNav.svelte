@@ -21,9 +21,10 @@
   </a>
 
   <div class="nav-links">
-    <a href="#model">Model</a>
-    <a href="#sources">Signals</a>
-    <a href="#readiness">Readiness</a>
+    <a href="#industrial-capacity">Industrial systems</a>
+    <a href="#sources">Environment</a>
+    <a href="#industries">Industries</a>
+    <a href="/demo">Live demo</a>
     <a href="/login">Sign in</a>
     <a href="/request-access" class="cta">Request access</a>
     <button
@@ -42,9 +43,10 @@
 
 {#if menuOpen}
   <div class="mobile-menu">
-    <a href="#model" onclick={closeMenu}>Model</a>
-    <a href="#sources" onclick={closeMenu}>Signals</a>
-    <a href="#readiness" onclick={closeMenu}>Readiness</a>
+    <a href="#industrial-capacity" onclick={closeMenu}>Industrial systems</a>
+    <a href="#sources" onclick={closeMenu}>Environment</a>
+    <a href="#industries" onclick={closeMenu}>Industries</a>
+    <a href="/demo" onclick={closeMenu}>Live demo</a>
     <a href="/login" onclick={closeMenu}>Sign in</a>
   </div>
 {/if}
@@ -77,7 +79,7 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 22px;
     color: var(--ink-2);
     font-family: var(--mono);
     font-size: 12px;

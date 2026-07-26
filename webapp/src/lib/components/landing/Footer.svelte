@@ -4,8 +4,10 @@
 
 <footer>
   <div class="closing">
-    <p>We believe every Fortune 500 will train autonomous workers before deploying them.</p>
-    <h2>We build the RL environments where AI agents and robots learn how enterprise operations actually work.</h2>
+    <p>Critical industry is entering the autonomous era.</p>
+    <h2>
+      Faraday is where AI agents and robots learn the operation before working alongside the people who keep it running.
+    </h2>
   </div>
 
   <div class="bottom">
@@ -14,6 +16,7 @@
       <span>© 2026 Faraday</span>
     </div>
     <div class="right">
+      <a href="/demo">Live demo</a>
       <a href="/request-access">Request access</a>
       <a href="/login">Sign in</a>
     </div>

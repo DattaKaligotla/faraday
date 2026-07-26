@@ -2,21 +2,21 @@
   import Gutter from "./Gutter.svelte";
 
   const scenarios = [
-    { name: "Supplier delay", result: "Ready", score: "98%" },
-    { name: "Equipment outage", result: "Needs review", score: "91%" },
-    { name: "Labor shortage", result: "Ready", score: "95%" },
-    { name: "Priority escalation", result: "Improve", score: "87%" },
+    { name: "Supplier delay", result: "Ready", score: "98%", detail: "0 violations · −12% cost" },
+    { name: "Equipment outage", result: "Needs review", score: "91%", detail: "1 violation · +3% cost" },
+    { name: "Labor shortage", result: "Ready", score: "95%", detail: "0 violations · −7% cost" },
+    { name: "Priority escalation", result: "Improve", score: "87%", detail: "2 violations · +1% cost" },
   ];
 </script>
 
 <section id="readiness">
-  <Gutter num="05" label="Before deployment">
+  <Gutter num="06" label="Before deployment">
     <div class="grid">
       <div>
         <h2 class="section-heading">Deployment becomes an evidence decision.</h2>
         <p class="section-copy">
-          Faraday shows where an autonomous worker is reliable, where it needs supervision, and where it should not act
-          yet. The question changes from "can it do the task?" to "can it operate the business safely?"
+          Faraday shows where a system is reliable, where it needs supervision, and where it should not act yet. The
+          question changes from “can it complete the task?” to “can it operate safely under real constraints?”
         </p>
       </div>
 
@@ -32,6 +32,7 @@
               <div>
                 <span>{scenario.name}</span>
                 <strong>{scenario.result}</strong>
+                <small>{scenario.detail}</small>
               </div>
               <b>{scenario.score}</b>
             </div>
@@ -106,8 +107,17 @@
   }
 
   .scenario strong {
+    display: block;
     color: var(--ink);
     font-size: 17px;
+  }
+
+  .scenario small {
+    display: block;
+    color: var(--ink-3);
+    font-family: var(--mono);
+    font-size: 10px;
+    margin-top: 5px;
   }
 
   .scenario b {

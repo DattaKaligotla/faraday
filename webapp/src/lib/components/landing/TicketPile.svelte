@@ -12,7 +12,7 @@
     },
     {
       name: "Consequence model",
-      detail: "What changes when an autonomous worker acts, delays, reroutes, rejects, or asks for help.",
+      detail: "What changes when a system acts, delays, reroutes, rejects, or asks a person for help.",
     },
     {
       name: "Readiness gates",
@@ -22,12 +22,12 @@
 </script>
 
 <section>
-  <Gutter num="02" label="What Faraday builds">
+  <Gutter num="03" label="What Faraday builds">
     <div class="intro">
-      <h2 class="section-heading">Training gyms for enterprise operations.</h2>
+      <h2 class="section-heading">An executable model of how the operation behaves.</h2>
       <p class="section-copy">
-        Faraday turns operational data into RL environments where autonomous workers learn how the enterprise behaves,
-        not just how to complete isolated tasks.
+        Not a dashboard. Not a synthetic sandbox. Faraday models the context around the task—who depends on it, which
+        rules cannot be broken, and what happens next.
       </p>
     </div>
 

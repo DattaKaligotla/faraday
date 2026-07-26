@@ -1,15 +1,8 @@
 <script lang="ts">
+  import { manufacturingScenario } from "$lib/data/manufacturingScenario";
   import Mod from "./Mod.svelte";
 
-  const stages = [
-    { label: "Enterprise state", detail: "systems, sites, teams" },
-    { label: "RL environment", detail: "rewards, constraints, scenarios" },
-    { label: "Autonomous system", detail: "train, evaluate, deploy" },
-  ];
-
-  const signals = ["Reward", "Constraint", "Scenario", "Human review"];
-
-  const proofs = ["Production stays untouched", "Human handoffs included", "Decisions scored against KPIs"];
+  const proofs = ["Built for physical operations", "Human judgment encoded", "Production stays untouched"];
 </script>
 
 <section id="hero">
@@ -17,66 +10,74 @@
 
   <div class="hero-grid">
     <div class="copy">
-      <div class="eyebrow">RL environments for enterprise operations</div>
-      <h1 data-mod="h1">Build the training environments where enterprise autonomy learns.</h1>
+      <div class="eyebrow">RL environments for critical industry</div>
+      <h1 data-mod="h1">Build autonomous capacity for the physical economy.</h1>
       <Mod id="hero-sub" as="p" class="sub">
-        Faraday builds reinforcement-learning environments that mirror Fortune 500 operations, so AI agents and robots
-        can train, fail, and improve before deployment.
+        Faraday turns the operating reality of manufacturers, logistics networks, and critical infrastructure into
+        secure simulation environments—so AI agents and robots can learn the work before they touch production.
       </Mod>
       <Mod id="hero-sub-2" as="p" class="sub secondary">
-        Model workflows. Generate scenarios. Score decisions. Keep production untouched.
+        Connect the business. Simulate the operation. Deploy only when the evidence says it is safe.
       </Mod>
 
       <div class="actions">
         <a href="/request-access" class="cta-primary">Request access</a>
-        <a href="#model" class="cta-secondary">See how it works</a>
+        <a href="/demo" class="cta-secondary">Run the demo</a>
       </div>
     </div>
 
-    <div class="simulator" aria-label="Enterprise reinforcement learning environment">
+    <div class="simulator" aria-label="Automotive assembly plant simulation environment">
       <div class="sim-top">
-        <span>Faraday RL environment</span>
+        <div class="sim-title">
+          <span>{manufacturingScenario.plant}</span>
+          <small>{manufacturingScenario.evaluation}</small>
+        </div>
         <div class="status">
           <i></i>
-          Training mode
+          Evaluation complete
         </div>
       </div>
 
-      <div class="model">
-        {#each stages as stage}
-          <div class="stage">
-            <span>{stage.label}</span>
-            <strong>{stage.detail}</strong>
+      <div class="environment-map">
+        <div class="map-meta">
+          <span>Operational replica</span>
+          <span>{manufacturingScenario.scenarioId}</span>
+        </div>
+
+        <div class="connection connection-a"></div>
+        <div class="connection connection-b"></div>
+        <div class="connection connection-c"></div>
+        <div class="connection connection-d"></div>
+
+        {#each manufacturingScenario.sources as source}
+          <div class="source-node {source.position}">
+            <span>{source.label}</span>
+            <small>{source.detail}</small>
           </div>
         {/each}
+
+        <div class="scenario-node">
+          <span>Active scenario</span>
+          <strong>{manufacturingScenario.scenario}</strong>
+          <p>{manufacturingScenario.detail}</p>
+        </div>
+
+        <div class="agent-node">
+          <div>
+            <span>{manufacturingScenario.policy.label}</span>
+            <strong>{manufacturingScenario.policy.action}</strong>
+          </div>
+          <div class="policy-pass" aria-hidden="true">✓</div>
+        </div>
       </div>
 
-      <div class="signal-plane">
-        <div class="axis axis-a"></div>
-        <div class="axis axis-b"></div>
-        <div class="axis axis-c"></div>
-        {#each signals as signal, i}
-          <div class="signal signal-{i + 1}">{signal}</div>
+      <div class="evidence-strip">
+        {#each manufacturingScenario.evidence as item}
+          <div>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+          </div>
         {/each}
-        <div class="core">
-          <span>Enterprise gym</span>
-          <strong>ready for training</strong>
-        </div>
-      </div>
-
-      <div class="metrics">
-        <div>
-          <span>Scenario coverage</span>
-          <strong>94%</strong>
-        </div>
-        <div>
-          <span>KPI alignment</span>
-          <strong>99%</strong>
-        </div>
-        <div>
-          <span>Production access</span>
-          <strong>0</strong>
-        </div>
       </div>
     </div>
   </div>
@@ -193,15 +194,10 @@
   .simulator {
     position: relative;
     overflow: hidden;
-    min-height: 610px;
+    min-height: 590px;
     border: 1px solid var(--line-3);
     border-radius: 8px;
-    background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px), #0c0c0c;
-    background-size:
-      34px 34px,
-      34px 34px;
+    background: #0c0c0c;
     box-shadow:
       0 36px 90px rgba(0, 0, 0, 0.36),
       inset 0 1px 0 rgba(255, 255, 255, 0.18);
@@ -211,8 +207,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    border-left: 1px solid rgba(255, 107, 26, 0.28);
-    border-right: 1px solid rgba(108, 182, 255, 0.16);
+    border-left: 1px solid rgba(255, 107, 26, 0.24);
     pointer-events: none;
   }
 
@@ -222,11 +217,25 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 18px;
+    padding: 18px 20px;
     color: rgba(255, 255, 255, 0.72);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--mono);
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
+  }
+
+  .sim-title span,
+  .sim-title small {
+    display: block;
+  }
+
+  .sim-title small {
+    color: var(--ink-3);
+    font-size: 9px;
+    font-weight: 500;
+    margin-top: 4px;
   }
 
   .status {
@@ -244,177 +253,208 @@
     box-shadow: 0 0 18px rgba(255, 107, 26, 0.9);
   }
 
-  .model {
+  .environment-map {
     position: relative;
     z-index: 1;
-    display: grid;
-    gap: 10px;
-    padding: 0 18px;
+    height: 430px;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
   }
 
-  .stage {
-    display: grid;
-    grid-template-columns: 0.64fr 1fr;
-    gap: 14px;
-    align-items: center;
-    border: 1px solid var(--line-3);
-    border-radius: 8px;
-    padding: 14px;
-    background: rgba(255, 255, 255, 0.045);
-    color: #fff;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-  }
-
-  .stage span {
+  .map-meta {
+    position: absolute;
+    inset: 18px 20px auto;
+    display: flex;
+    justify-content: space-between;
     color: var(--ink-3);
-    font-size: 12px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 10px;
     text-transform: uppercase;
   }
 
-  .stage strong {
-    font-size: 15px;
-    font-weight: 760;
-  }
-
-  .signal-plane {
-    position: relative;
-    z-index: 1;
-    height: 290px;
-    margin: 18px;
-    border: 1px solid var(--line-3);
-    border-radius: 8px;
-    background:
-      linear-gradient(90deg, rgba(255, 107, 26, 0.12) 1px, transparent 1px),
-      linear-gradient(rgba(255, 107, 26, 0.1) 1px, transparent 1px), rgba(12, 12, 12, 0.56);
-    background-size: 38px 38px;
-  }
-
-  .axis {
+  .connection {
     position: absolute;
     height: 1px;
-    background: rgba(255, 107, 26, 0.56);
+    background: rgba(255, 107, 26, 0.55);
     transform-origin: left center;
   }
 
-  .axis-a {
-    left: 11%;
-    top: 26%;
-    width: 76%;
-    transform: rotate(18deg);
+  .connection-a {
+    left: 21%;
+    top: 28%;
+    width: 31%;
+    transform: rotate(11deg);
   }
 
-  .axis-b {
-    left: 10%;
-    top: 72%;
-    width: 72%;
-    background: rgba(108, 182, 255, 0.5);
-    transform: rotate(-18deg);
-  }
-
-  .axis-c {
-    left: 20%;
-    top: 49%;
-    width: 62%;
-    background: rgba(232, 196, 104, 0.46);
-  }
-
-  .signal {
-    position: absolute;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 999px;
-    padding: 8px 11px;
-    background: var(--surface);
-    color: var(--ink-2);
-    font-size: 12px;
-    font-weight: 760;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
-  }
-
-  .signal-1 {
-    left: 8%;
-    top: 19%;
-  }
-
-  .signal-2 {
-    right: 10%;
-    top: 17%;
-  }
-
-  .signal-3 {
-    left: 13%;
-    bottom: 18%;
-  }
-
-  .signal-4 {
-    right: 8%;
-    bottom: 15%;
-  }
-
-  .core {
-    position: absolute;
-    left: 50%;
+  .connection-b {
+    left: 21%;
     top: 50%;
-    width: min(250px, 64%);
-    transform: translate(-50%, -50%);
+    width: 29%;
+    transform: rotate(-5deg);
+  }
+
+  .connection-c {
+    left: 21%;
+    top: 73%;
+    width: 46%;
+    background: rgba(108, 182, 255, 0.5);
+    transform: rotate(-22deg);
+  }
+
+  .connection-d {
+    left: 59%;
+    top: 48%;
+    width: 27%;
+    background: rgba(108, 182, 255, 0.5);
+    transform: rotate(17deg);
+  }
+
+  .source-node {
+    position: absolute;
+    left: 6%;
+    width: 30%;
+    padding-left: 12px;
+    border-left: 2px solid var(--accent);
+  }
+
+  .source-a {
+    top: 21%;
+  }
+
+  .source-b {
+    top: 44%;
+  }
+
+  .source-c {
+    top: 67%;
+    border-color: var(--blue);
+  }
+
+  .source-node span,
+  .source-node small {
+    display: block;
+  }
+
+  .source-node span {
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .source-node small {
+    color: var(--ink-3);
+    font-family: var(--mono);
+    font-size: 10px;
+    margin-top: 3px;
+  }
+
+  .scenario-node {
+    position: absolute;
+    left: 38%;
+    top: 22%;
+    width: 42%;
     border: 1px solid rgba(255, 107, 26, 0.55);
     border-radius: 8px;
     background: #101010;
     color: var(--ink);
-    padding: 20px;
-    box-shadow: 0 28px 68px rgba(0, 0, 0, 0.42);
+    padding: 22px;
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.4);
   }
 
-  .core span {
+  .scenario-node span,
+  .agent-node span {
     display: block;
     color: var(--accent);
-    font-size: 12px;
     font-family: var(--mono);
+    font-size: 10px;
     font-weight: 600;
-    margin-bottom: 12px;
+    text-transform: uppercase;
   }
 
-  .core strong {
+  .scenario-node strong {
     display: block;
     font-family: var(--serif);
-    font-size: clamp(26px, 3vw, 38px);
+    font-size: clamp(28px, 3vw, 38px);
     font-weight: 500;
     letter-spacing: 0;
     line-height: 1;
+    margin: 18px 0 10px;
   }
 
-  .metrics {
+  .scenario-node p {
+    color: var(--ink-3);
+    font-size: 13px;
+  }
+
+  .agent-node {
+    position: absolute;
+    left: 49%;
+    top: 74%;
+    width: 43%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border: 1px solid var(--line-3);
+    border-radius: 8px;
+    background: #131313;
+    padding: 16px 18px;
+  }
+
+  .agent-node span {
+    color: var(--blue);
+  }
+
+  .agent-node strong {
+    display: block;
+    color: var(--ink);
+    font-size: 13px;
+    margin-top: 5px;
+  }
+
+  .policy-pass {
+    display: grid;
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    border: 1px solid rgba(255, 107, 26, 0.5);
+    border-radius: 50%;
+    color: var(--accent);
+    font-size: 13px;
+  }
+
+  .evidence-strip {
     position: relative;
     z-index: 1;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px;
-    margin: 0 18px 18px;
-    overflow: hidden;
-    border: 1px solid var(--line-3);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.04);
+    border-top: 1px solid var(--line);
   }
 
-  .metrics div {
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.04);
-    color: #fff;
+  .evidence-strip div {
+    padding: 18px 20px;
+    border-right: 1px solid var(--line);
   }
 
-  .metrics span {
+  .evidence-strip div:last-child {
+    border-right: none;
+  }
+
+  .evidence-strip span {
     display: block;
     color: var(--ink-3);
-    font-size: 11px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 10px;
     text-transform: uppercase;
     margin-bottom: 8px;
   }
 
-  .metrics strong {
-    font-size: 26px;
-    font-weight: 760;
+  .evidence-strip strong {
+    color: var(--ink);
+    font-size: 15px;
   }
 
   .proofs {
@@ -464,12 +504,54 @@
     }
 
     .simulator {
-      min-height: 540px;
+      min-height: 650px;
     }
 
-    .stage,
-    .metrics {
+    .environment-map {
+      height: 510px;
+    }
+
+    .source-node {
+      left: 5%;
+      width: 34%;
+    }
+
+    .scenario-node {
+      left: 33%;
+      top: 23%;
+      width: 60%;
+    }
+
+    .agent-node {
+      left: 28%;
+      top: 66%;
+      width: 65%;
+    }
+
+    .connection-a,
+    .connection-b {
+      width: 24%;
+    }
+
+    .evidence-strip {
       grid-template-columns: 1fr;
+    }
+
+    .evidence-strip div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+      padding: 13px 16px;
+    }
+
+    .evidence-strip div:last-child {
+      border-bottom: none;
+    }
+
+    .evidence-strip span {
+      margin-bottom: 0;
     }
 
     .proofs {

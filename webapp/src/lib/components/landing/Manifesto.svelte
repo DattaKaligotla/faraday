@@ -4,7 +4,7 @@
 </script>
 
 <section id="model">
-  <Gutter num="01" label="Why environments">
+  <Gutter num="01" label="The missing environment">
     <div class="grid">
       <div>
         <h2 class="section-heading">
@@ -16,7 +16,7 @@
 
       <div class="copy">
         <Mod id="manifesto-1" as="p">
-          A Fortune 500 operation is not just software. It is a web of goals, roles, constraints, habits, exceptions,
+          An enterprise operation is not just software. It is a web of goals, roles, constraints, habits, exceptions,
           equipment, policies, and judgment calls.
         </Mod>
         <Mod id="manifesto-2" as="p">
@@ -24,8 +24,8 @@
           affects, who depends on it, what rules cannot be broken, and when a person should be brought in.
         </Mod>
         <Mod id="manifesto-3" as="p">
-          Production is the wrong place for that learning to happen. Faraday gives AI agents and robots RL environments
-          where they can practice, fail, improve, and prove readiness before deployment.
+          Production is the wrong place for that learning to happen. Faraday gives AI agents and robots a faithful,
+          executable environment where they can practice, fail, improve, and prove readiness before deployment.
         </Mod>
       </div>
     </div>

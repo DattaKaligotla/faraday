@@ -1,0 +1,250 @@
+export const TOOL_SCHEMA = [
+  {
+    name: "applyStyle",
+    description: "Apply CSS properties to a modifiable element. Only whitelisted properties are applied.",
+    input_schema: {
+      type: "object",
+      properties: {
+        targetId: {
+          type: "string",
+          description: "The id of the modifiable element.",
+        },
+        properties: {
+          type: "object",
+          description: "CSS property/value pairs to apply.",
+          additionalProperties: { type: "string" },
+        },
+        scope: {
+          type: "string",
+          enum: ["element", "descendants"],
+          default: "element",
+        },
+      },
+      required: ["targetId", "properties"],
+    },
+  },
+  {
+    name: "setText",
+    description: "Set the text content of a modifiable element.",
+    input_schema: {
+      type: "object",
+      properties: {
+        targetId: { type: "string" },
+        text: { type: "string" },
+      },
+      required: ["targetId", "text"],
+    },
+  },
+  {
+    name: "setVisibility",
+    description: "Show or hide a modifiable element.",
+    input_schema: {
+      type: "object",
+      properties: {
+        targetId: { type: "string" },
+        visible: { type: "boolean" },
+      },
+      required: ["targetId", "visible"],
+    },
+  },
+  {
+    name: "reorder",
+    description:
+      "Reorder children of a container by providing a new order of child ids. Ids may be native Modifiable ids, inserted-component instanceIds, or any combination — they all share a single ordering. Ids not listed keep their relative source order at the end.",
+    input_schema: {
+      type: "object",
+      properties: {
+        containerId: { type: "string" },
+        order: { type: "array", items: { type: "string" } },
+      },
+      required: ["containerId", "order"],
+    },
+  },
+  {
+    name: "insertComponent",
+    description: "Insert a registered component into a container at a given position.",
+    input_schema: {
+      type: "object",
+      properties: {
+        containerId: { type: "string" },
+        componentName: {
+          type: "string",
+          description: "Must match a name from the components registry.",
+        },
+        props: { type: "object", additionalProperties: true },
+        position: {
+          type: "integer",
+          description: "0-based insertion index.",
+          default: 0,
+        },
+      },
+      required: ["containerId", "componentName", "props"],
+    },
+  },
+  {
+    name: "injectHTML",
+    description:
+      "Inject inline HTML/SVG markup relative to ANY modifiable element (container or not). Use this when the user asks for something not in the component registry — charts, graphs, custom widgets, decorative SVG, badges with arbitrary shapes. You write the markup yourself; no pre-built component is required. Markup is sanitized server-side: <script> tags, on* event handlers, and javascript: URLs are stripped.",
+    input_schema: {
+      type: "object",
+      properties: {
+        targetId: {
+          type: "string",
+          description: "Id of any modifiable element to anchor against.",
+        },
+        html: {
+          type: "string",
+          description:
+            "The raw HTML or SVG markup to inject. Prefer inline SVG for charts. Inline styles are allowed; class names are not.",
+        },
+        position: {
+          type: "string",
+          enum: ["before", "after", "inside-start", "inside-end"],
+          default: "after",
+          description:
+            "Where to place the markup relative to the target element. 'after' renders adjacent below/right; 'inside-end' appends within the element.",
+        },
+      },
+      required: ["targetId", "html"],
+    },
+  },
+  {
+    name: "applyTheme",
+    description:
+      "Re-skin the entire host page by setting CSS custom properties on the document root. Use this when the user asks for a theme change ('make this dark', 'use a warmer palette', 'feel more like Notion'). The host's existing components inherit from these vars (e.g. --background, --foreground, --primary, --accent, --border, --muted), so changing them cascades through the whole UI without per-element styling. Inspect the active vars in the snapshot before changing them — only override the ones you need. Pass an empty string for a var name to clear an override.",
+    input_schema: {
+      type: "object",
+      properties: {
+        vars: {
+          type: "object",
+          description:
+            "Map of CSS variable names (with or without leading '--') to values. Example: { background: 'oklch(0.18 0 0)', foreground: 'oklch(0.98 0 0)', primary: '#f97316' }.",
+          additionalProperties: { type: "string" },
+        },
+      },
+      required: ["vars"],
+    },
+  },
+  {
+    name: "setLayout",
+    description:
+      "Switch a container's layout mode. Reflows its children client-side without changing the DOM order. Use this for radical structural requests ('show this as a kanban board', 'make this a grid', 'lay these out on a timeline'). Targets must be ids marked [container] in the page tree.",
+    input_schema: {
+      type: "object",
+      properties: {
+        targetId: {
+          type: "string",
+          description: "Id of the container to reflow.",
+        },
+        mode: {
+          type: "string",
+          enum: ["list", "grid", "kanban", "timeline"],
+          description:
+            "list = vertical stack (default), grid = responsive cards, kanban = N evenly-sized columns, timeline = vertical with a left rail.",
+        },
+        columns: {
+          type: "integer",
+          minimum: 1,
+          maximum: 6,
+          description: "Optional column count for kanban (default 3). Ignored by list/grid/timeline.",
+        },
+      },
+      required: ["targetId", "mode"],
+    },
+  },
+  {
+    name: "removeComponent",
+    description:
+      "Remove a previously inserted component by its instanceId. Use when the user asks to delete or remove something the agent inserted earlier. instanceIds appear in the page tree as `[inserted ...]`.",
+    input_schema: {
+      type: "object",
+      properties: {
+        instanceId: {
+          type: "string",
+          description: "instanceId of the inserted component to remove.",
+        },
+      },
+      required: ["instanceId"],
+    },
+  },
+  {
+    name: "removeInjection",
+    description:
+      "Remove a previously injected HTML/SVG fragment by its injectionId. Use when the user asks to delete an injected chart, badge, table, or other markup. The active injections appear in the system prompt under 'Active HTML injections'.",
+    input_schema: {
+      type: "object",
+      properties: {
+        targetId: {
+          type: "string",
+          description: "Anchor id the injection is attached to.",
+        },
+        injectionId: { type: "string" },
+      },
+      required: ["targetId", "injectionId"],
+    },
+  },
+  {
+    name: "setAttributes",
+    description:
+      "Set or clear HTML attributes on a registered modifiable element. Use for href / src / placeholder / type / target / aria-* / data-* — anything that lives on the element as a key/value but isn't style or text. Pass an empty string to CLEAR an attribute. Event handlers (on*), id, style, class, srcdoc, and sandbox are always rejected.",
+    input_schema: {
+      type: "object",
+      properties: {
+        targetId: {
+          type: "string",
+          description: "Id of the modifiable element to mutate.",
+        },
+        attributes: {
+          type: "object",
+          description:
+            "Map of attribute names to values. Names are case-insensitive. Pass '' to clear. Example: { href: '/signup', target: '_blank', rel: 'noopener', placeholder: 'name@example.com' }.",
+          additionalProperties: { type: "string" },
+        },
+      },
+      required: ["targetId", "attributes"],
+    },
+  },
+  {
+    name: "undo",
+    description: "Undo the last N actions.",
+    input_schema: {
+      type: "object",
+      properties: {
+        steps: { type: "integer", default: 1, minimum: 1 },
+      },
+    },
+  },
+  {
+    name: "findElement",
+    description:
+      "Resolve a natural-language reference (e.g. 'the revenue card', 'the primary CTA button') to a real DOM element on the host page that has NOT been registered as a Modifiable. Stamps the element with a synthetic id and registers it so subsequent tools (applyStyle, setText, setAttributes, injectHTML, etc.) can target it. The resolved id is returned in the tool_result — use that exact id in your next tool call. Prefer ids from the page tree when they match; only use findElement for elements the engineer didn't wrap.",
+    input_schema: {
+      type: "object",
+      properties: {
+        query: {
+          type: "string",
+          description:
+            "Plain-English description of the element. Use the user's own words. Example: 'sign-up button', 'expense table header', 'hero image'.",
+        },
+        role: {
+          type: "string",
+          description:
+            "Optional ARIA role or HTML tag to narrow candidates (button, link, heading, h1, input, img, listitem, ...).",
+        },
+        text: {
+          type: "string",
+          description:
+            "Optional substring of visible text that uniquely identifies the element. Highest-precision signal when present.",
+        },
+        near: {
+          type: "string",
+          description:
+            "Optional id of an already-registered Modifiable. Resolution scopes to that element's subtree first; falls back to body if no match.",
+        },
+      },
+      required: ["query"],
+    },
+  },
+] as const;
+
+export type ToolName = (typeof TOOL_SCHEMA)[number]["name"];

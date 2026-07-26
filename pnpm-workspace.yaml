@@ -1,0 +1,14 @@
+packages:
+  - package
+  - agent-runner
+  - demos/atomic-crm
+  - demos/analytics-dashboard
+  - demos/ecommerce
+  - demos/landing-page
+  - demos/midday
+  - demos/nextcrm-app
+  - demos/twenty
+  - webapp
+onlyBuiltDependencies:
+  - "@tailwindcss/oxide"
+  - esbuild

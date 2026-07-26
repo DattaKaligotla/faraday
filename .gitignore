@@ -1,0 +1,17 @@
+**/node_modules/
+**/dist/
+**/.vite/
+
+.env
+.env.local
+
+# Vendored / cloned-in demos that ship their own .git tree.
+demos/idurar-erp-crm/
+
+# Credentials — never commit.
+*.firebase-adminsdk-*.json
+**/sa.json
+
+.claude/settings.local.json
+.DS_Store
+.vercel

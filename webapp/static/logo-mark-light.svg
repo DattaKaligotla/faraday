@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" role="img" aria-label="FaradayStack">
+  <rect width="64" height="64" rx="14" fill="#f6f4ef"></rect>
+  
+  <rect x="10" y="10" width="12" height="12" rx="1.5" fill="#d3cec3"></rect>
+  <rect x="26" y="10" width="12" height="12" rx="1.5" fill="#d3cec3"></rect>
+  <rect x="42" y="10" width="12" height="12" rx="1.5" fill="#d3cec3"></rect>
+  <rect x="10" y="26" width="12" height="12" rx="1.5" fill="#d3cec3"></rect>
+  <rect x="42" y="26" width="12" height="12" rx="1.5" fill="#d3cec3"></rect>
+  <rect x="10" y="42" width="12" height="12" rx="1.5" fill="#d3cec3"></rect>
+  <rect x="26" y="42" width="12" height="12" rx="1.5" fill="#d3cec3"></rect>
+  <rect x="42" y="42" width="12" height="12" rx="1.5" fill="#d3cec3"></rect>
+  
+  <rect x="22" y="22" width="20" height="20" rx="2.5" fill="#f97316"></rect>
+  
+  <path d="M40 40 L46 40 L46 38 L48 38 L48 46 L46 46 L46 44 L40 44 Z" fill="#0a0b0d" fill-opacity="0.85"></path>
+</svg>

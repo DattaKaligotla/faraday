@@ -1,0 +1,856 @@
+/* Analytics page styles. Tokens prefixed `--fa-` and class names `fa-`
+ * to avoid colliding with the surrounding shadcn / Tailwind layer. The
+ * top-level wrapper carries `data-faraday-analytics`; tokens are bound
+ * to that selector so they don't leak to siblings.
+ */
+
+[data-faraday-analytics] {
+  --fa-bg: #0a0b0d;
+  --fa-bg-1: #0f1014;
+  --fa-bg-2: #14161b;
+  --fa-bg-3: #1a1d23;
+  --fa-bg-4: #21252c;
+  --fa-line: #1f232a;
+  --fa-line-2: #2a3038;
+  --fa-line-3: #353c46;
+  --fa-text: #e6e9ee;
+  --fa-text-2: #b6bdc7;
+  --fa-text-3: #7c838e;
+  --fa-text-4: #525861;
+  --fa-accent: #f97316;
+  --fa-accent-soft: rgba(249, 115, 22, 0.12);
+  --fa-accent-line: rgba(249, 115, 22, 0.3);
+  --fa-green: #22c55e;
+  --fa-amber: #f59e0b;
+  --fa-red: #ef4444;
+  --fa-blue: #60a5fa;
+  --fa-purple: #a78bfa;
+  --fa-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --fa-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  background: var(--fa-bg);
+  color: var(--fa-text);
+  font-family: var(--fa-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  padding: 18px 24px 32px;
+  min-height: 100%;
+}
+
+[data-faraday-analytics] *,
+[data-faraday-analytics] *::before,
+[data-faraday-analytics] *::after {
+  box-sizing: border-box;
+}
+
+[data-faraday-analytics] button {
+  font-family: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ─── page header ─── */
+[data-faraday-analytics] .fa-page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--fa-line);
+}
+[data-faraday-analytics] .fa-page-title h1 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--fa-text);
+  margin: 0;
+}
+[data-faraday-analytics] .fa-title-mono {
+  display: inline-block;
+  font-family: var(--fa-mono);
+  font-size: 11px;
+  color: var(--fa-text-4);
+  margin-left: 10px;
+  letter-spacing: 0.02em;
+}
+[data-faraday-analytics] .fa-page-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ─── range pills + compare toggle ─── */
+[data-faraday-analytics] .fa-range-pills {
+  display: inline-flex;
+  border: 1px solid var(--fa-line-2);
+  border-radius: 7px;
+  overflow: hidden;
+  background: var(--fa-bg-1);
+}
+[data-faraday-analytics] .fa-range-pills button {
+  font-family: var(--fa-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 11px;
+  color: var(--fa-text-3);
+  border-right: 1px solid var(--fa-line-2);
+}
+[data-faraday-analytics] .fa-range-pills button:last-child {
+  border-right: none;
+}
+[data-faraday-analytics] .fa-range-pills button:hover {
+  color: var(--fa-text);
+  background: var(--fa-bg-2);
+}
+[data-faraday-analytics] .fa-range-pills button.on {
+  background: var(--fa-accent-soft);
+  color: var(--fa-accent);
+}
+
+[data-faraday-analytics] .fa-hd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--fa-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fa-text-3);
+  padding: 6px 10px;
+  border: 1px solid var(--fa-line-2);
+  border-radius: 6px;
+}
+[data-faraday-analytics] .fa-hd-btn:hover {
+  color: var(--fa-text);
+  border-color: var(--fa-line-3);
+}
+[data-faraday-analytics] .fa-hd-btn-primary {
+  background: var(--fa-accent);
+  color: #0a0b0d;
+  border-color: var(--fa-accent);
+}
+
+/* ─── KPI row ─── */
+[data-faraday-analytics] .fa-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+@media (max-width: 1080px) {
+  [data-faraday-analytics] .fa-kpi-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+[data-faraday-analytics] .fa-kpi {
+  background: var(--fa-bg-1);
+  border: 1px solid var(--fa-line);
+  border-radius: 10px;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+[data-faraday-analytics] .fa-kpi-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--fa-mono);
+  font-size: 10px;
+  color: var(--fa-text-4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+[data-faraday-analytics] .fa-kpi-val {
+  font-family: var(--fa-mono);
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--fa-text);
+}
+[data-faraday-analytics] .fa-kpi-val .fa-unit {
+  font-size: 14px;
+  color: var(--fa-text-3);
+  margin-left: 3px;
+}
+[data-faraday-analytics] .fa-kpi-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fa-mono);
+  font-size: 10.5px;
+  color: var(--fa-text-3);
+}
+[data-faraday-analytics] .fa-kpi-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 500;
+}
+[data-faraday-analytics] .fa-kpi-delta.up {
+  color: var(--fa-green);
+}
+[data-faraday-analytics] .fa-kpi-delta.down {
+  color: var(--fa-red);
+}
+[data-faraday-analytics] .fa-kpi-delta.muted {
+  color: var(--fa-text-3);
+}
+[data-faraday-analytics] .fa-kpi-spark {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  opacity: 0.85;
+}
+
+/* ─── analytics grid ─── */
+[data-faraday-analytics] .fa-analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-flow: dense;
+  gap: 12px;
+}
+[data-faraday-analytics] .fa-col-12 {
+  grid-column: span 12;
+}
+[data-faraday-analytics] .fa-col-8 {
+  grid-column: span 8;
+}
+[data-faraday-analytics] .fa-col-7 {
+  grid-column: span 7;
+}
+[data-faraday-analytics] .fa-col-6 {
+  grid-column: span 6;
+}
+[data-faraday-analytics] .fa-col-5 {
+  grid-column: span 5;
+}
+[data-faraday-analytics] .fa-col-4 {
+  grid-column: span 4;
+}
+[data-faraday-analytics] .fa-col-3 {
+  grid-column: span 3;
+}
+@media (max-width: 1280px) {
+  [data-faraday-analytics] .fa-col-8,
+  [data-faraday-analytics] .fa-col-7 {
+    grid-column: span 12;
+  }
+  [data-faraday-analytics] .fa-col-5,
+  [data-faraday-analytics] .fa-col-4 {
+    grid-column: span 6;
+  }
+  [data-faraday-analytics] .fa-col-3 {
+    grid-column: span 6;
+  }
+}
+@media (max-width: 860px) {
+  [data-faraday-analytics] .fa-col-6,
+  [data-faraday-analytics] .fa-col-5,
+  [data-faraday-analytics] .fa-col-4,
+  [data-faraday-analytics] .fa-col-3 {
+    grid-column: span 12;
+  }
+}
+
+/* ─── card chrome ─── */
+[data-faraday-analytics] .fa-card {
+  background: var(--fa-bg-1);
+  border: 1px solid var(--fa-line);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+[data-faraday-analytics] .fa-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px 8px;
+}
+[data-faraday-analytics] .fa-card-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+[data-faraday-analytics] .fa-card-title h3 {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--fa-text);
+  margin: 0;
+}
+[data-faraday-analytics] .fa-mono-sub {
+  font-family: var(--fa-mono);
+  font-size: 10px;
+  color: var(--fa-text-4);
+  letter-spacing: 0.04em;
+}
+[data-faraday-analytics] .fa-card-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-family: var(--fa-mono);
+  font-size: 10px;
+  color: var(--fa-text-4);
+}
+[data-faraday-analytics] .fa-card-tab {
+  padding: 3px 7px;
+  border-radius: 4px;
+  color: var(--fa-text-3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+[data-faraday-analytics] .fa-card-tab:hover {
+  color: var(--fa-text-2);
+  background: var(--fa-bg-2);
+}
+[data-faraday-analytics] .fa-card-tab.on {
+  color: var(--fa-accent);
+  background: var(--fa-accent-soft);
+}
+[data-faraday-analytics] .fa-card-body {
+  padding: 4px 14px 14px;
+  min-width: 0;
+}
+
+[data-faraday-analytics] .fa-empty {
+  color: var(--fa-text-4);
+  font-family: var(--fa-mono);
+  font-size: 11px;
+  padding: 16px 0;
+  text-align: center;
+}
+
+/* ─── chart frame ─── */
+[data-faraday-analytics] .fa-chart-frame {
+  position: relative;
+  width: 100%;
+}
+[data-faraday-analytics] .fa-chart-yaxis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 20px;
+  width: 36px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  pointer-events: none;
+}
+[data-faraday-analytics] .fa-chart-yaxis span {
+  font-family: var(--fa-mono);
+  font-size: 9px;
+  color: var(--fa-text-4);
+  letter-spacing: 0.04em;
+}
+[data-faraday-analytics] .fa-chart-svg {
+  display: block;
+  margin-left: 36px;
+  width: calc(100% - 36px);
+}
+[data-faraday-analytics] .fa-chart-xaxis {
+  margin-left: 36px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--fa-mono);
+  font-size: 9.5px;
+  color: var(--fa-text-4);
+}
+[data-faraday-analytics] .fa-gridline {
+  stroke: var(--fa-line);
+  stroke-dasharray: 2 4;
+}
+[data-faraday-analytics] .fa-axis-line {
+  stroke: var(--fa-line-2);
+}
+
+[data-faraday-analytics] .fa-series-legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 0 0 8px;
+  font-family: var(--fa-mono);
+  font-size: 10.5px;
+}
+[data-faraday-analytics] .fa-series-legend .fa-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--fa-text-3);
+}
+[data-faraday-analytics] .fa-series-legend .fa-swatch {
+  width: 10px;
+  height: 2px;
+  border-radius: 1px;
+}
+[data-faraday-analytics] .fa-series-legend .fa-item.fa-dot .fa-swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+[data-faraday-analytics] .fa-swatch-dashed {
+  width: 10px;
+  height: 2px;
+  background-image: linear-gradient(to right, var(--fa-text-4) 50%, transparent 50%);
+  background-size: 4px 100%;
+}
+[data-faraday-analytics] .fa-series-legend .fa-v {
+  color: var(--fa-text-2);
+  font-weight: 500;
+}
+
+/* ─── stacked status bar ─── */
+[data-faraday-analytics] .fa-stacked-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+[data-faraday-analytics] .fa-stacked-bar {
+  flex: 1;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--fa-bg-3);
+  overflow: hidden;
+  display: flex;
+}
+[data-faraday-analytics] .fa-stacked-bar .fa-seg {
+  height: 100%;
+}
+[data-faraday-analytics] .fa-seg.applied {
+  background: var(--fa-green);
+}
+[data-faraday-analytics] .fa-seg.responded {
+  background: var(--fa-amber);
+}
+[data-faraday-analytics] .fa-seg.failed {
+  background: var(--fa-red);
+}
+[data-faraday-analytics] .fa-stacked-legend {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 14px;
+  border: 1px solid var(--fa-line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--fa-line);
+}
+[data-faraday-analytics] .fa-stacked-legend .fa-cell {
+  background: var(--fa-bg-1);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+[data-faraday-analytics] .fa-stacked-legend .fa-cell .fa-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--fa-mono);
+  font-size: 9.5px;
+  color: var(--fa-text-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+[data-faraday-analytics] .fa-stacked-legend .fa-cell .fa-head .fa-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+}
+[data-faraday-analytics] .fa-stacked-legend .fa-cell .fa-num {
+  font-family: var(--fa-mono);
+  font-size: 18px;
+  color: var(--fa-text);
+  font-weight: 500;
+  line-height: 1;
+}
+[data-faraday-analytics] .fa-stacked-legend .fa-cell .fa-pct {
+  font-family: var(--fa-mono);
+  font-size: 10px;
+  color: var(--fa-text-4);
+}
+
+[data-faraday-analytics] .fa-outcomes-errors {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--fa-line);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+[data-faraday-analytics] .fa-outcomes-error-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--fa-mono);
+  font-size: 10.5px;
+  color: var(--fa-text-3);
+  gap: 8px;
+}
+[data-faraday-analytics] .fa-outcomes-error-key {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+[data-faraday-analytics] .fa-outcomes-error-count {
+  color: var(--fa-red);
+  flex-shrink: 0;
+}
+
+/* ─── pattern list ─── */
+[data-faraday-analytics] .fa-pattern-list {
+  display: flex;
+  flex-direction: column;
+}
+[data-faraday-analytics] .fa-pat-row {
+  display: grid;
+  grid-template-columns: 1fr 56px 90px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--fa-line);
+}
+[data-faraday-analytics] .fa-pat-row:last-child {
+  border-bottom: none;
+}
+[data-faraday-analytics] .fa-pat-prompt {
+  font-size: 12.5px;
+  color: var(--fa-text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+[data-faraday-analytics] .fa-pat-prompt .fa-quote {
+  color: var(--fa-accent);
+  margin-right: 3px;
+}
+[data-faraday-analytics] .fa-pat-bar-wrap {
+  background: var(--fa-bg-3);
+  border-radius: 2px;
+  height: 6px;
+  overflow: hidden;
+  position: relative;
+}
+[data-faraday-analytics] .fa-pat-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--fa-accent);
+  border-radius: 2px;
+}
+[data-faraday-analytics] .fa-pat-count {
+  font-family: var(--fa-mono);
+  font-size: 11px;
+  color: var(--fa-text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+[data-faraday-analytics] .fa-pat-trend {
+  margin-left: 6px;
+  font-size: 9.5px;
+  color: var(--fa-text-4);
+}
+[data-faraday-analytics] .fa-pat-trend.up {
+  color: var(--fa-green);
+}
+[data-faraday-analytics] .fa-pat-trend.down {
+  color: var(--fa-red);
+}
+
+/* ─── tool usage ─── */
+[data-faraday-analytics] .fa-tool-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+[data-faraday-analytics] .fa-tool-row {
+  display: grid;
+  grid-template-columns: 130px 1fr 50px;
+  gap: 10px;
+  align-items: center;
+}
+[data-faraday-analytics] .fa-tool-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--fa-mono);
+  font-size: 11px;
+  color: var(--fa-text-2);
+}
+[data-faraday-analytics] .fa-tool-name .fa-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+}
+[data-faraday-analytics] .fa-tool-bar-wrap {
+  background: var(--fa-bg-3);
+  border-radius: 2px;
+  height: 8px;
+  position: relative;
+  overflow: hidden;
+}
+[data-faraday-analytics] .fa-tool-bar {
+  height: 100%;
+  border-radius: 2px;
+}
+[data-faraday-analytics] .fa-tool-num {
+  font-family: var(--fa-mono);
+  font-size: 11px;
+  color: var(--fa-text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── orgs table ─── */
+[data-faraday-analytics] .fa-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+[data-faraday-analytics] .fa-data-table th {
+  text-align: left;
+  font-family: var(--fa-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fa-text-4);
+  font-weight: 500;
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--fa-line);
+}
+[data-faraday-analytics] .fa-data-table th.num,
+[data-faraday-analytics] .fa-data-table td.num {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 10px;
+}
+[data-faraday-analytics] .fa-data-table td {
+  padding: 10px 10px 10px 0;
+  border-bottom: 1px solid var(--fa-line);
+  color: var(--fa-text-2);
+  vertical-align: middle;
+}
+[data-faraday-analytics] .fa-data-table tr:last-child td {
+  border-bottom: none;
+}
+[data-faraday-analytics] .fa-data-table tr:hover td {
+  background: var(--fa-bg-2);
+}
+
+[data-faraday-analytics] .fa-org-cell {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+[data-faraday-analytics] .fa-org-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: var(--fa-bg-3);
+  border: 1px solid var(--fa-line-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fa-mono);
+  font-size: 10px;
+  color: var(--fa-text-2);
+  font-weight: 600;
+}
+[data-faraday-analytics] .fa-org-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  min-width: 0;
+}
+[data-faraday-analytics] .fa-org-info .fa-n {
+  color: var(--fa-text);
+  font-weight: 500;
+  font-size: 12.5px;
+}
+[data-faraday-analytics] .fa-org-info .fa-h {
+  font-family: var(--fa-mono);
+  font-size: 10px;
+  color: var(--fa-text-4);
+}
+[data-faraday-analytics] .fa-cell-num {
+  font-family: var(--fa-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--fa-text);
+}
+[data-faraday-analytics] .fa-unit-sm {
+  color: var(--fa-text-4);
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+/* ─── heatmap ─── */
+[data-faraday-analytics] .fa-heatmap {
+  display: grid;
+  grid-template-columns: 28px repeat(24, 1fr);
+  grid-template-rows: 18px repeat(7, 1fr);
+  gap: 2px;
+  margin-top: 4px;
+}
+[data-faraday-analytics] .fa-hm-corner {
+}
+[data-faraday-analytics] .fa-hm-hour {
+  font-family: var(--fa-mono);
+  font-size: 9px;
+  color: var(--fa-text-4);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+[data-faraday-analytics] .fa-hm-day {
+  font-family: var(--fa-mono);
+  font-size: 9.5px;
+  color: var(--fa-text-4);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+[data-faraday-analytics] .fa-hm-cell {
+  aspect-ratio: 1 / 1;
+  min-height: 14px;
+  border-radius: 2px;
+  background: var(--fa-bg-2);
+}
+[data-faraday-analytics] .fa-hm-cell:hover {
+  outline: 1px solid var(--fa-accent);
+  outline-offset: 0;
+  z-index: 2;
+}
+[data-faraday-analytics] .fa-hm-scale {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--fa-mono);
+  font-size: 9.5px;
+  color: var(--fa-text-4);
+  margin-top: 10px;
+  letter-spacing: 0.06em;
+}
+[data-faraday-analytics] .fa-hm-scale .fa-swatches {
+  display: inline-flex;
+  gap: 2px;
+}
+[data-faraday-analytics] .fa-hm-scale .fa-swatches span {
+  width: 12px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+/* ─── PR funnel ─── */
+[data-faraday-analytics] .fa-funnel {
+  display: flex;
+  flex-direction: column;
+}
+[data-faraday-analytics] .fa-funnel-row {
+  display: grid;
+  grid-template-columns: 130px 1fr 80px 50px;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--fa-line);
+}
+[data-faraday-analytics] .fa-funnel-row:last-child {
+  border-bottom: none;
+}
+[data-faraday-analytics] .fa-funnel-label {
+  font-family: var(--fa-mono);
+  font-size: 11px;
+  color: var(--fa-text-2);
+  letter-spacing: 0.02em;
+}
+[data-faraday-analytics] .fa-funnel-label .fa-step-no {
+  color: var(--fa-text-4);
+  margin-right: 8px;
+}
+[data-faraday-analytics] .fa-funnel-bar-wrap {
+  background: var(--fa-bg-3);
+  border-radius: 3px;
+  height: 10px;
+  position: relative;
+  overflow: hidden;
+}
+[data-faraday-analytics] .fa-funnel-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--fa-accent);
+  border-radius: 3px;
+}
+[data-faraday-analytics] .fa-funnel-count {
+  font-family: var(--fa-mono);
+  font-size: 12px;
+  color: var(--fa-text);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+[data-faraday-analytics] .fa-funnel-conv {
+  font-family: var(--fa-mono);
+  font-size: 10px;
+  color: var(--fa-text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+[data-faraday-analytics] .fa-funnel-conv.warn {
+  color: var(--fa-amber);
+}
+[data-faraday-analytics] .fa-funnel-summary {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--fa-line);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--fa-mono);
+  font-size: 10.5px;
+  color: var(--fa-text-3);
+}
+
+/* ─── footer strip ─── */
+[data-faraday-analytics] .fa-foot-strip {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 4px 0;
+  font-family: var(--fa-mono);
+  font-size: 10px;
+  color: var(--fa-text-4);
+  margin-top: 12px;
+  border-top: 1px solid var(--fa-line);
+}
+[data-faraday-analytics] .fa-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--fa-green);
+  box-shadow: 0 0 6px var(--fa-green);
+  animation: fa-pulse 1.4s ease-in-out infinite;
+}
+[data-faraday-analytics] .fa-foot-sep {
+  color: var(--fa-line-3);
+}
+
+@keyframes fa-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

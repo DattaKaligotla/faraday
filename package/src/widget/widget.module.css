@@ -1,0 +1,780 @@
+/*
+  All selectors are nested under [data-faraday] so they cannot bleed into host app styles
+  and host app styles cannot pierce them without the attribute prefix.
+*/
+
+[data-faraday] *,
+[data-faraday] *::before,
+[data-faraday] *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[data-faraday] {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #111827;
+}
+
+/* Launcher button */
+.launcher {
+  position: fixed;
+  z-index: 2147483647;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #111827;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.launcher:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.launcher:active {
+  transform: scale(0.97);
+}
+
+/* Panel */
+.panel {
+  z-index: 2147483646;
+  width: 440px;
+  max-width: calc(100vw - 32px);
+  height: 620px;
+  max-height: calc(100vh - 96px);
+  background: #ffffff;
+  border: 1px solid #ececee;
+  border-radius: 12px;
+  box-shadow:
+    0 16px 48px rgba(15, 15, 20, 0.14),
+    0 2px 8px rgba(15, 15, 20, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #0a0a0a;
+}
+
+.panelHeader {
+  padding: 11px 14px;
+  border-bottom: 1px solid #ececee;
+  background: #f7f7f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.panelHeader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #f97316;
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #0a0a0a;
+}
+
+.titleDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f97316;
+  display: inline-block;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.saveBtn {
+  height: 26px;
+  padding: 0 10px;
+  border: 1px solid #dedee2;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #525252;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.saveBtn:hover:not(:disabled) {
+  border-color: #f97316;
+  color: #c2410c;
+  background: rgba(249, 115, 22, 0.06);
+}
+
+.saveBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.saveBtnSaved {
+  border-color: rgba(22, 163, 74, 0.55);
+  color: #16a34a;
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.saveBtnError {
+  border-color: rgba(220, 38, 38, 0.55);
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.closeBtn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #dedee2;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #525252;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.closeBtn:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.06);
+}
+
+/* Messages */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 18px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #ffffff;
+}
+
+.message {
+  max-width: 84%;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.message[data-role="user"] {
+  align-self: flex-end;
+  background: #0a0a0a;
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+}
+
+.message[data-role="assistant"] {
+  align-self: flex-start;
+  background: #f4f4f5;
+  color: #0a0a0a;
+  border: 1px solid #ececee;
+  border-bottom-left-radius: 4px;
+}
+
+.streamingDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9ca3af;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* Input row */
+.inputRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 12px 14px;
+  border-top: 1px solid #ececee;
+  background: #f7f7f8;
+  flex-shrink: 0;
+}
+
+.textarea {
+  flex: 1;
+  resize: none;
+  border: 1px solid #dedee2;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  line-height: 1.5;
+  max-height: 120px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+  color: #0a0a0a;
+  background: #ffffff;
+}
+
+.textarea:focus {
+  border-color: #f97316;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.08);
+}
+
+.textarea::placeholder {
+  color: #8a8a8a;
+}
+
+.sendBtn,
+.voiceBtn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #dedee2;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.sendBtn {
+  background: #0a0a0a;
+  border-color: #0a0a0a;
+  color: #ffffff;
+}
+
+.sendBtn:hover:not(:disabled) {
+  background: #1f1f1f;
+}
+
+.sendBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.voiceBtn {
+  background: #ffffff;
+  color: #525252;
+}
+
+.voiceBtn:hover {
+  border-color: #f97316;
+  color: #c2410c;
+  background: rgba(249, 115, 22, 0.06);
+}
+
+.voiceBtn[data-recording="true"] {
+  background: rgba(220, 38, 38, 0.08);
+  border-color: rgba(220, 38, 38, 0.55);
+  color: #dc2626;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(220, 38, 38, 0);
+  }
+}
+
+/* Pending-modifications border — shown while agent changes are uncommitted */
+.modBorder {
+  position: fixed;
+  inset: 0;
+  border: 8px solid #f97316;
+  pointer-events: none;
+  z-index: 2147483645;
+  box-sizing: border-box;
+}
+
+.emptyState {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a8a8a;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  padding: 24px;
+}
+
+/* Modifiable highlight — drawn around every registered element while the
+   chat panel is open so the user can see what's editable. */
+.modifiableHighlight {
+  pointer-events: none;
+  border: 2px dashed #f97316;
+  border-radius: 4px;
+  z-index: 2147483644;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.12);
+  animation: faradayHighlightFade 0.18s ease-out;
+}
+
+.modifiableHighlightLabel {
+  position: absolute;
+  background: #f97316;
+  color: #ffffff;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 2147483645;
+  transition:
+    top 0.22s ease,
+    left 0.22s ease,
+    background 0.12s,
+    transform 0.08s;
+}
+
+.modifiableHighlightLabel:hover {
+  background: #ea580c;
+  transform: scale(1.06);
+}
+
+@keyframes faradayHighlightFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modifiableHighlightPulsing {
+  animation: faradayHighlightPulse 2s ease-in-out 1;
+  border-width: 3px;
+}
+
+@keyframes faradayHighlightPulse {
+  0%,
+  100% {
+    border-color: #f97316;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.12);
+    transform: scale(1);
+  }
+  25%,
+  75% {
+    border-color: #fb923c;
+    box-shadow: 0 0 0 14px rgba(249, 115, 22, 0.5);
+    transform: scale(1.04);
+  }
+  50% {
+    border-color: #f97316;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.12);
+    transform: scale(1);
+  }
+}
+
+/* Dot — anchored to the topmost Modifiable, doubles as open/close toggle.
+   `top` and `left` are set inline (fixed positioning, viewport-relative). */
+.floatingExpandBtn {
+  position: fixed;
+  z-index: 2147483646;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #f97316;
+  color: #ffffff;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.22),
+    0 0 0 2px rgba(255, 255, 255, 0.95);
+  transition:
+    background 0.12s,
+    transform 0.08s;
+}
+
+.floatingExpandBtn:hover {
+  background: #ea580c;
+  transform: scale(1.06);
+}
+
+.floatingExpandBtn[data-dragging="true"] {
+  cursor: grabbing;
+  transform: scale(1.06);
+}
+
+.floatingExpandBtn:active:not([data-dragging="true"]) {
+  transform: scale(0.95);
+}
+
+/* Popover that opens above the targeted element */
+.inlinePopover {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.18),
+    0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 10px 12px;
+  width: 380px;
+  max-width: calc(100vw - 24px);
+}
+
+.inlinePopoverHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.inlineTarget {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: #6b7280;
+  letter-spacing: 0.02em;
+}
+
+.inlineCloseBtn {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+
+.inlineCloseBtn:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.inlineInputRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.inlineStatus {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #6b7280;
+  text-align: center;
+  font-family: inherit;
+}
+
+/* Drag-to-reorder affordance — applied to any Modifiable when the cursor is
+   near its border. The data attribute is toggled by useDragHandle.ts. */
+[data-faraday-grabbable="true"] {
+  cursor: grab;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.55);
+}
+
+[data-faraday-dragging="true"] {
+  cursor: grabbing;
+  box-shadow:
+    0 0 0 2px rgba(249, 115, 22, 0.85),
+    0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* CSS-edit popover anchored to a clicked highlight label */
+.editPopover {
+  z-index: 2147483646;
+  width: 360px;
+  max-width: calc(100vw - 24px);
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.editGrid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 10px;
+  align-items: center;
+}
+
+.editGrid label {
+  font-size: 11px;
+  color: #374151;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: nowrap;
+}
+
+.editInput {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  background: #f9fafb;
+  transition:
+    border-color 0.12s,
+    background 0.12s;
+}
+
+.editInput:focus {
+  border-color: #f97316;
+  background: #fff;
+}
+
+.editActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.editApplyBtn,
+.editResetBtn {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+
+.editApplyBtn {
+  background: #111827;
+  color: #fff;
+}
+
+.editApplyBtn:hover {
+  background: #374151;
+}
+
+.editResetBtn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.editResetBtn:hover {
+  background: #e5e7eb;
+}
+
+.presetRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.presetBtn {
+  flex: 1 1 auto;
+  min-width: 50px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  background: #fff;
+  color: #374151;
+  transition:
+    border-color 0.12s,
+    background 0.12s,
+    color 0.12s;
+}
+
+.presetBtn:hover {
+  border-color: #f97316;
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.swatchedInput {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 6px;
+  align-items: center;
+}
+
+.swatch {
+  width: 28px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  background: transparent;
+  transition:
+    border-color 0.12s,
+    opacity 0.12s;
+}
+
+.swatch::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+.swatch::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+.swatch::-moz-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+
+.swatch:hover {
+  border-color: #f97316;
+}
+
+/* Container "+" add-button — positioned at the end of a container's children */
+.addComponentBtn {
+  position: fixed;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px dashed #f97316;
+  background: #fff;
+  color: #f97316;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  font-family: inherit;
+  z-index: 2147483645;
+  transition:
+    background 0.12s,
+    transform 0.08s;
+}
+
+.addComponentBtn:hover {
+  background: #f97316;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.componentPicker {
+  position: fixed;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  padding: 6px;
+  z-index: 2147483646;
+  min-width: 180px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.componentPickerItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #111827;
+  transition: background 0.1s;
+}
+
+.componentPickerItem:hover {
+  background: #f3f4f6;
+}
+
+/* Resize corner handle — bottom-right of the focused Modifiable */
+.resizeHandle {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: #f97316;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  cursor: nwse-resize;
+  z-index: 2147483645;
+  touch-action: none;
+}
+
+.resizeHandle:hover {
+  transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .streamingDot,
+  .voiceBtn[data-recording="true"],
+  .modifiableHighlight,
+  .modifiableHighlightPulsing {
+    animation: none;
+  }
+}

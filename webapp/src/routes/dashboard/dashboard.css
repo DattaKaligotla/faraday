@@ -1,0 +1,534 @@
+/* Dashboard-specific styles. The sidebar nav is owned by shadcn-svelte's Sidebar
+   primitives (see $lib/components/AppSidebar.svelte); .dash-shell is now just a
+   scope wrapper around the page-content rules below. */
+
+.dash-shell {
+  background: var(--dash-bg);
+  min-height: 100%;
+}
+
+.dash-shell main {
+  padding: 12px 32px 80px;
+  min-width: 0;
+}
+
+.dash-shell .page-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0 12px;
+  color: var(--text-muted);
+}
+.dash-shell .header {
+  margin-bottom: 22px;
+}
+.dash-shell .header h1 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.dash-shell .header .sub {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-subtle);
+  margin-top: 4px;
+}
+
+.dash-shell .key-card {
+  background: var(--dash-bg-card);
+  border: 1px solid var(--dash-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+.dash-shell .key-card .row-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.dash-shell .key-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.dash-shell .key-card .meta-row {
+  display: flex;
+  gap: 24px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dash-border);
+}
+.dash-shell .key-card .meta-row > div {
+  font-size: 12px;
+}
+.dash-shell .key-card .meta-row .k,
+.dash-shell .key-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: 4px;
+}
+.dash-shell .key-card .meta-row .v {
+  color: var(--text);
+}
+.dash-shell .key-display {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--dash-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--dash-bg-elevated);
+}
+.dash-shell .key-display code {
+  flex: 1;
+  padding: 11px 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.dash-shell .key-display .copy {
+  padding: 11px 14px;
+  border: none;
+  border-left: 1px solid var(--dash-border);
+  background: var(--dash-bg-card);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  transition: color 0.12s;
+}
+.dash-shell .key-display .copy:hover {
+  color: var(--accent-dim);
+}
+.dash-shell .key-display .copy.copied {
+  color: var(--green);
+}
+
+.dash-shell .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: var(--text);
+  color: #fff;
+}
+.dash-shell .btn-primary:hover {
+  background: #1f1f1f;
+}
+.dash-shell .btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.dash-shell .btn-ghost {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--dash-border-strong);
+  background: transparent;
+  color: var(--text);
+  transition: all 0.15s;
+}
+.dash-shell .btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent-dim);
+  background: var(--accent-soft);
+}
+.dash-shell .btn-danger {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--dash-border-strong);
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+.dash-shell .btn-danger:hover {
+  border-color: var(--red);
+  color: var(--red);
+  background: rgba(220, 38, 38, 0.06);
+}
+
+.dash-shell .empty-state {
+  background: var(--dash-bg-card);
+  border: 1px dashed var(--dash-border-strong);
+  border-radius: 12px;
+  padding: 48px 24px;
+  text-align: center;
+}
+.dash-shell .empty-state h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.dash-shell .empty-state p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.dash-shell .alert {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.dash-shell .alert.error {
+  background: rgba(220, 38, 38, 0.08);
+  color: var(--red);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+.dash-shell .alert.success {
+  background: rgba(22, 163, 74, 0.08);
+  color: var(--green);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.dash-shell .snippet {
+  margin-top: 22px;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+.dash-shell .snippet .k {
+  color: #f97316;
+}
+.dash-shell .snippet .s {
+  color: #a3e635;
+}
+
+.dash-shell .filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.dash-shell .select-pill {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 6px 28px 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--dash-border);
+  background: var(--dash-bg-card);
+  color: var(--text);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23525252' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 9px center;
+}
+.dash-shell .select-pill:hover {
+  border-color: var(--dash-border-strong);
+}
+.dash-shell .select-pill:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.dash-shell .list {
+  background: var(--dash-bg-card);
+  border: 1px solid var(--dash-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.dash-shell .list-head {
+  display: grid;
+  grid-template-columns: 1fr 160px 110px 90px 24px;
+  gap: 16px;
+  padding: 12px 18px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  border-bottom: 1px solid var(--dash-border);
+  background: var(--dash-bg-elevated);
+}
+.dash-shell .row {
+  display: grid;
+  grid-template-columns: 1fr 160px 110px 90px 24px;
+  gap: 16px;
+  padding: 14px 18px;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.dash-shell .row:hover {
+  background: var(--dash-bg-elevated);
+}
+.dash-shell .row + .row,
+.dash-shell .row + .detail,
+.dash-shell .detail + .row {
+  border-top: 1px solid var(--dash-border);
+}
+.dash-shell .row .req {
+  font-size: 13px;
+  color: var(--text);
+}
+.dash-shell .row .req .from {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-subtle);
+  margin-top: 2px;
+}
+.dash-shell .row .user {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dash-shell .row .when {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-subtle);
+}
+.dash-shell .row .chev {
+  color: var(--text-subtle);
+  transition: transform 0.15s;
+}
+.dash-shell .row.open .chev {
+  transform: rotate(90deg);
+}
+
+.dash-shell .pill-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.dash-shell .pill-status .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+.dash-shell .pill-status.applied {
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--green);
+}
+.dash-shell .pill-status.applied .dot {
+  background: var(--green);
+}
+.dash-shell .pill-status.pending,
+.dash-shell .pill-status.responded {
+  background: rgba(249, 115, 22, 0.1);
+  color: var(--accent-dim);
+}
+.dash-shell .pill-status.pending .dot,
+.dash-shell .pill-status.responded .dot {
+  background: var(--accent);
+}
+.dash-shell .pill-status.failed {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--red);
+}
+.dash-shell .pill-status.failed .dot {
+  background: var(--red);
+}
+
+.dash-shell .detail {
+  padding: 16px 18px 22px;
+  background: var(--dash-bg-elevated);
+}
+.dash-shell .detail .grid {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px 18px;
+  font-size: 12px;
+}
+.dash-shell .detail .grid .k {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  padding-top: 2px;
+}
+.dash-shell .detail .grid .v {
+  color: var(--text);
+}
+.dash-shell .detail pre {
+  font-family: var(--mono);
+  font-size: 11px;
+  background: var(--dash-bg-card);
+  border: 1px solid var(--dash-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  color: var(--text);
+}
+.dash-shell .detail .tool-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--dash-bg-card);
+  border: 1px solid var(--dash-border);
+  color: var(--text);
+}
+
+.dash-shell .gh-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.dash-shell .gh-meta .login {
+  color: var(--text);
+  font-weight: 500;
+}
+.dash-shell .repo-picker {
+  margin-top: 16px;
+  border: 1px solid var(--dash-border);
+  border-radius: 8px;
+  background: var(--dash-bg-elevated);
+  overflow: hidden;
+}
+.dash-shell .repo-picker .search {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-bottom: 1px solid var(--dash-border);
+  background: var(--dash-bg-card);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+}
+.dash-shell .repo-list {
+  max-height: 280px;
+  overflow-y: auto;
+}
+.dash-shell .repo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--dash-border);
+}
+.dash-shell .repo-row:last-child {
+  border-bottom: none;
+}
+.dash-shell .repo-row:hover {
+  background: var(--dash-bg-card);
+}
+.dash-shell .repo-row .name {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+}
+.dash-shell .repo-row .private,
+.dash-shell .tracked-name .private {
+  font-family: var(--mono);
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--dash-bg-elevated);
+  color: var(--text-subtle);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.dash-shell .repo-row .pushed {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-subtle);
+}
+.dash-shell .picker-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--dash-bg-card);
+  border-top: 1px solid var(--dash-border);
+}
+
+.dash-shell .tracked-list {
+  margin-top: 14px;
+  border: 1px solid var(--dash-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--dash-bg-card);
+}
+.dash-shell .tracked-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--dash-border);
+}
+.dash-shell .tracked-row:last-child {
+  border-bottom: none;
+}
+.dash-shell .tracked-row:hover {
+  background: var(--dash-bg-elevated);
+}
+.dash-shell .tracked-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.dash-shell .tracked-name a {
+  color: var(--text);
+}
+.dash-shell .tracked-name a:hover {
+  color: var(--accent-dim);
+  text-decoration: underline;
+}
+.dash-shell .tracked-branch {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border: 1px solid var(--dash-border);
+  border-radius: 4px;
+  background: var(--dash-bg-elevated);
+}
+
+@media (max-width: 880px) {
+  .dash-shell main {
+    padding: 18px;
+  }
+  .dash-shell .list-head,
+  .dash-shell .row {
+    grid-template-columns: 1fr 80px 24px;
+  }
+  .dash-shell .list-head .col-user,
+  .dash-shell .list-head .col-when,
+  .dash-shell .row .user,
+  .dash-shell .row .when {
+    display: none;
+  }
+}

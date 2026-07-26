@@ -1,0 +1,67 @@
+import type { CSSProperties } from "react";
+
+export const fieldStyles: Record<string, CSSProperties> = {
+  row: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 6,
+    margin: "8px 0",
+    font: "inherit",
+    color: "inherit",
+  },
+  label: {
+    fontSize: "0.92em",
+    fontWeight: 500,
+    opacity: 0.85,
+  },
+  requiredMark: {
+    color: "#ef4444",
+  },
+  input: {
+    border: "1px solid currentColor",
+    borderRadius: 6,
+    padding: "8px 10px",
+    font: "inherit",
+    color: "inherit",
+    background: "transparent",
+    outline: "none",
+    width: "100%",
+    boxSizing: "border-box",
+  },
+  textarea: {
+    border: "1px solid currentColor",
+    borderRadius: 6,
+    padding: "8px 10px",
+    font: "inherit",
+    color: "inherit",
+    background: "transparent",
+    outline: "none",
+    width: "100%",
+    boxSizing: "border-box",
+    resize: "vertical",
+    minHeight: 80,
+  },
+  inlineRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    margin: "8px 0",
+    font: "inherit",
+    color: "inherit",
+  },
+  radioGroup: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 6,
+    margin: "8px 0",
+    font: "inherit",
+    color: "inherit",
+  },
+  radioOption: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    font: "inherit",
+    color: "inherit",
+  },
+};

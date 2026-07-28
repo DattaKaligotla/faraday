@@ -1,8 +1,6 @@
 <script lang="ts">
   import { manufacturingScenario } from "$lib/data/manufacturingScenario";
   import Mod from "./Mod.svelte";
-
-  const proofs = ["Built for physical operations", "Human judgment encoded", "Production stays untouched"];
 </script>
 
 <section id="hero">
@@ -22,7 +20,6 @@
 
       <div class="actions">
         <a href="/request-access" class="cta-primary">Request access</a>
-        <a href="/demo" class="cta-secondary">Run the demo</a>
       </div>
     </div>
 
@@ -82,11 +79,6 @@
     </div>
   </div>
 
-  <div class="proofs">
-    {#each proofs as proof}
-      <span>{proof}</span>
-    {/each}
-  </div>
 </section>
 
 <style>
@@ -166,8 +158,7 @@
     flex-wrap: wrap;
   }
 
-  .cta-primary,
-  .cta-secondary {
+  .cta-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -183,12 +174,6 @@
     color: #0c0c0c;
     background: var(--accent);
     box-shadow: 0 12px 40px -10px rgba(255, 107, 26, 0.6);
-  }
-
-  .cta-secondary {
-    color: var(--ink);
-    border: 1px solid var(--line-3);
-    background: var(--surface);
   }
 
   .simulator {
@@ -457,27 +442,6 @@
     font-size: 15px;
   }
 
-  .proofs {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px;
-    overflow: hidden;
-    border: 1px solid var(--line-2);
-    border-radius: 8px;
-    background: var(--line);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .proofs span {
-    color: var(--ink-2);
-    background: rgba(255, 255, 255, 0.035);
-    padding: 18px;
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-  }
-
   @media (max-width: 980px) {
     .hero-grid {
       grid-template-columns: 1fr;
@@ -552,10 +516,6 @@
 
     .evidence-strip span {
       margin-bottom: 0;
-    }
-
-    .proofs {
-      grid-template-columns: 1fr;
     }
   }
 </style>

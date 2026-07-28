@@ -12,7 +12,7 @@
     },
     {
       label: "Evaluate",
-      text: "Run agents and robot policies against realistic scenarios before deciding what can be deployed, escalated, or blocked.",
+      text: "Run agents against realistic scenarios before deciding what can be deployed, escalated, or blocked.",
     },
   ];
 </script>
@@ -21,13 +21,13 @@
   <Gutter num="01" label="What we build">
     <div class="grid">
       <div>
-        <h2 class="section-heading">Enterprise simulations for agents and robots.</h2>
+        <h2 class="section-heading">Enterprise simulations for AI agents.</h2>
       </div>
 
       <div class="copy">
         <p>
-          Faraday turns an enterprise operation into a secure simulation environment. Agents and robots can practice
-          decisions there before they are trusted with real work.
+          Faraday turns an enterprise operation into a secure simulation environment. Agents can practice decisions
+          there before they are trusted with real work.
         </p>
 
         <div class="points">

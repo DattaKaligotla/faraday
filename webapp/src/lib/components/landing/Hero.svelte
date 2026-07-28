@@ -11,8 +11,8 @@
       <div class="eyebrow">Faraday</div>
       <h1 data-mod="h1">Simulation before production.</h1>
       <Mod id="hero-sub" as="p" class="sub">
-        We build private environments where AI agents and robots learn how an enterprise actually operates before they
-        get access to real systems.
+        We build private environments where AI agents learn how an enterprise actually operates before they get access
+        to real systems.
       </Mod>
 
       <div class="actions">

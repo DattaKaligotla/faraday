@@ -11,7 +11,7 @@
   <title>Faraday - Simulation for autonomous operations</title>
   <meta
     name="description"
-    content="Faraday builds private simulation environments where AI agents and robots learn enterprise operations before deployment."
+    content="Faraday builds private simulation environments where AI agents learn enterprise operations before deployment."
   />
 </svelte:head>
 

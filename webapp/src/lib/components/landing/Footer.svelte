@@ -5,7 +5,7 @@
 <footer>
   <div class="closing">
     <p>Faraday</p>
-    <h2>Deploy autonomy only after it has learned the operation.</h2>
+    <h2>Deploy agents only after they have learned the operation.</h2>
   </div>
 
   <div class="bottom">

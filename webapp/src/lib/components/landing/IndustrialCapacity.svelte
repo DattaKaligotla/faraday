@@ -34,7 +34,7 @@
           in production.
         </p>
         <p>
-          Faraday turns their operating reality into RL environments where AI agents and robots can learn the work,
+          Faraday turns their operating reality into environments where AI agents can learn the work,
           rehearse disruptions, and prove readiness before deployment.
         </p>
       </div>

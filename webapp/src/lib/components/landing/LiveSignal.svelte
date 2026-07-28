@@ -16,7 +16,7 @@
     },
     {
       name: "Physical world",
-      examples: "Machine state, robot traces, downtime, capacity, location",
+      examples: "Machine state, downtime, capacity, location",
     },
   ];
 </script>

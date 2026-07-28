@@ -4,7 +4,7 @@
   const industries = [
     {
       name: "Manufacturing",
-      systems: "ERP · MES · robotics · quality",
+      systems: "ERP · MES · quality · maintenance",
       scenarios: "Line outages, quality drift, re-planning, and human safety gates.",
       accent: "orange",
     },

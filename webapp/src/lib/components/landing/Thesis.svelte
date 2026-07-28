@@ -10,7 +10,7 @@
       </p>
 
       <p>
-        AI agents and robots can now take action, but action alone is not useful. They need to understand what the work
+        AI agents can now take action, but action alone is not useful. They need to understand what the work
         affects, what constraints matter, when tradeoffs are acceptable, and when humans should stay in control.
       </p>
 

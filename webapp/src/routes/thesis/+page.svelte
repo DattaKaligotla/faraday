@@ -5,10 +5,10 @@
 </script>
 
 <svelte:head>
-  <title>Thesis - Faraday</title>
+  <title>Thesis - Faraday Cage</title>
   <meta
     name="description"
-    content="Why Faraday exists: autonomous workers need RL environments that mirror enterprise operations before they are deployed."
+    content="Why Faraday Cage exists: autonomous workers need environments that mirror enterprise operations before they are deployed."
   />
 </svelte:head>
 

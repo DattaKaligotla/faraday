@@ -1,6 +1,6 @@
 <footer>
   <div class="footer-inner container">
-    <span class="mono">© 2026 Faraday</span>
+    <span class="mono">© 2026 Faraday Cage</span>
     <span class="mono">faraday.com</span>
   </div>
 </footer>

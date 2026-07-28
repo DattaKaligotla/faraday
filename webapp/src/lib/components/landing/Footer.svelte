@@ -4,14 +4,14 @@
 
 <footer>
   <div class="closing">
-    <p>Faraday</p>
+    <p>Faraday Cage</p>
     <h2>Deploy agents only after they have learned the operation.</h2>
   </div>
 
   <div class="bottom">
     <div class="left">
       <Logo size={16} variant="mark" />
-      <span>© 2026 Faraday</span>
+      <span>© 2026 Faraday Cage</span>
     </div>
     <div class="right">
       <a href="/request-access">Request access</a>

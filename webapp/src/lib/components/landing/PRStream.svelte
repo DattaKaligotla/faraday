@@ -15,7 +15,7 @@
       <div>
         <h2 class="section-heading">Deployment becomes an evidence decision.</h2>
         <p class="section-copy">
-          Faraday shows where a system is reliable, where it needs supervision, and where it should not act yet. The
+          Faraday Cage shows where a system is reliable, where it needs supervision, and where it should not act yet. The
           question changes from “can it complete the task?” to “can it operate safely under real constraints?”
         </p>
       </div>

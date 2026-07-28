@@ -39,7 +39,7 @@
 </script>
 
 <svelte:head>
-  <title>Request access - Faraday</title>
+  <title>Request access - Faraday Cage</title>
   <meta
     name="description"
     content="Tell us about the Fortune 500 operations you want to turn into RL environments. We'll be in touch."

@@ -27,7 +27,7 @@
       <div>
         <h2 class="section-heading">The environment learns from the places work already happens.</h2>
         <p class="section-copy">
-          Faraday combines formal system state with the informal knowledge operators use every day. As workflows,
+          Faraday Cage combines formal system state with the informal knowledge operators use every day. As workflows,
           policies, and conditions change, the environment changes with them.
         </p>
       </div>

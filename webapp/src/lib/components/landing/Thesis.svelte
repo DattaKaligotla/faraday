@@ -20,13 +20,13 @@
       </p>
 
       <p>
-        Faraday builds RL environments from the systems and knowledge that already run the business. Inside those
+        Faraday Cage builds RL environments from the systems and knowledge that already run the business. Inside those
         environments, autonomous workers practice workflows, face disruptions, learn handoffs, and prove readiness
         before they are deployed.
       </p>
 
       <p class="kicker">
-        We believe every Fortune 500 will eventually have autonomous workers. Faraday is where they train before
+        We believe every Fortune 500 will eventually have autonomous workers. Faraday Cage is where they train before
         production.
       </p>
     </div>

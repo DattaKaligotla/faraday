@@ -8,7 +8,7 @@
 
   <div class="hero-grid">
     <div class="copy">
-      <div class="eyebrow">Faraday</div>
+      <div class="eyebrow">Faraday Cage</div>
       <h1 data-mod="h1">Simulation before production.</h1>
       <Mod id="hero-sub" as="p" class="sub">
         We build private environments where AI agents learn how an enterprise actually operates before they get access

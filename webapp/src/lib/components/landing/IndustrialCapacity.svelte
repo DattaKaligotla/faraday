@@ -34,7 +34,7 @@
           in production.
         </p>
         <p>
-          Faraday turns their operating reality into environments where AI agents can learn the work,
+          Faraday Cage turns their operating reality into environments where AI agents can learn the work,
           rehearse disruptions, and prove readiness before deployment.
         </p>
       </div>

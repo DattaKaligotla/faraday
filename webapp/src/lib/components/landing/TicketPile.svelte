@@ -22,11 +22,11 @@
 </script>
 
 <section>
-  <Gutter num="03" label="What Faraday builds">
+  <Gutter num="03" label="What Faraday Cage builds">
     <div class="intro">
       <h2 class="section-heading">An executable model of how the operation behaves.</h2>
       <p class="section-copy">
-        Not a dashboard. Not a synthetic sandbox. Faraday models the context around the task—who depends on it, which
+        Not a dashboard. Not a synthetic sandbox. Faraday Cage models the context around the task—who depends on it, which
         rules cannot be broken, and what happens next.
       </p>
     </div>

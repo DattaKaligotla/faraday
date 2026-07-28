@@ -4,7 +4,7 @@
 
 <nav>
   <div class="nav-inner container">
-    <a href="/" class="logo" aria-label="Faraday home">
+    <a href="/" class="logo" aria-label="Faraday Cage home">
       <Logo variant="lockup" />
     </a>
     <div class="nav-links">

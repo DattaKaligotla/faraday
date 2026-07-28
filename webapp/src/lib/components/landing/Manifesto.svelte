@@ -26,8 +26,8 @@
 
       <div class="copy">
         <p>
-          Faraday turns an enterprise operation into a secure simulation environment. Agents can practice decisions
-          there before they are trusted with real work.
+          Faraday Cage turns an enterprise operation into a secure simulation environment. Agents can practice
+          decisions there before they are trusted with real work.
         </p>
 
         <div class="points">

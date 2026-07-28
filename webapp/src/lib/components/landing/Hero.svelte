@@ -8,14 +8,11 @@
 
   <div class="hero-grid">
     <div class="copy">
-      <div class="eyebrow">RL environments for critical industry</div>
-      <h1 data-mod="h1">Build autonomous capacity for the physical economy.</h1>
+      <div class="eyebrow">Faraday</div>
+      <h1 data-mod="h1">Simulation before production.</h1>
       <Mod id="hero-sub" as="p" class="sub">
-        Faraday turns the operating reality of manufacturers, logistics networks, and critical infrastructure into
-        secure simulation environments—so AI agents and robots can learn the work before they touch production.
-      </Mod>
-      <Mod id="hero-sub-2" as="p" class="sub secondary">
-        Connect the business. Simulate the operation. Deploy only when the evidence says it is safe.
+        We build private environments where AI agents and robots learn how an enterprise actually operates before they
+        get access to real systems.
       </Mod>
 
       <div class="actions">
@@ -85,11 +82,11 @@
   section {
     position: relative;
     isolation: isolate;
-    min-height: calc(100vh - 96px);
+    min-height: calc(88vh - 72px);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 72px 0 34px;
+    padding: 46px 0 26px;
     overflow: hidden;
   }
 
@@ -110,9 +107,9 @@
   .hero-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.93fr) minmax(420px, 0.82fr);
-    gap: 56px;
+    gap: 48px;
     align-items: center;
-    padding: 34px 0 52px;
+    padding: 22px 0 42px;
   }
 
   .copy {
@@ -131,12 +128,12 @@
 
   h1 {
     font-family: var(--serif);
-    font-size: clamp(48px, 7vw, 88px);
+    font-size: clamp(48px, 6.2vw, 78px);
     font-weight: 500;
     letter-spacing: 0;
-    line-height: 0.95;
+    line-height: 0.98;
     text-wrap: balance;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   :global(.sub) {
@@ -144,12 +141,7 @@
     font-size: 18px;
     line-height: 1.55;
     max-width: 660px;
-    margin-bottom: 12px;
-  }
-
-  :global(.sub.secondary) {
-    color: var(--ink-3);
-    margin-bottom: 34px;
+    margin-bottom: 30px;
   }
 
   .actions {

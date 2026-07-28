@@ -21,10 +21,8 @@
   </a>
 
   <div class="nav-links">
-    <a href="#industrial-capacity">Industrial systems</a>
-    <a href="#sources">Environment</a>
+    <a href="#model">What we build</a>
     <a href="#industries">Industries</a>
-    <a href="/demo">Live demo</a>
     <a href="/login">Sign in</a>
     <a href="/request-access" class="cta">Request access</a>
     <button
@@ -43,10 +41,8 @@
 
 {#if menuOpen}
   <div class="mobile-menu">
-    <a href="#industrial-capacity" onclick={closeMenu}>Industrial systems</a>
-    <a href="#sources" onclick={closeMenu}>Environment</a>
+    <a href="#model" onclick={closeMenu}>What we build</a>
     <a href="#industries" onclick={closeMenu}>Industries</a>
-    <a href="/demo" onclick={closeMenu}>Live demo</a>
     <a href="/login" onclick={closeMenu}>Sign in</a>
   </div>
 {/if}

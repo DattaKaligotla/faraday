@@ -4,10 +4,8 @@
 
 <footer>
   <div class="closing">
-    <p>Critical industry is entering the autonomous era.</p>
-    <h2>
-      Faraday is where AI agents and robots learn the operation before working alongside the people who keep it running.
-    </h2>
+    <p>Faraday</p>
+    <h2>Deploy autonomy only after it has learned the operation.</h2>
   </div>
 
   <div class="bottom">
@@ -16,7 +14,6 @@
       <span>© 2026 Faraday</span>
     </div>
     <div class="right">
-      <a href="/demo">Live demo</a>
       <a href="/request-access">Request access</a>
       <a href="/login">Sign in</a>
     </div>
@@ -26,13 +23,13 @@
 <style>
   footer {
     border-top: 1px solid var(--line);
-    padding: 82px 0 46px;
+    padding: 58px 0 38px;
     color: var(--ink);
   }
 
   .closing {
-    max-width: 980px;
-    margin-bottom: 76px;
+    max-width: 760px;
+    margin-bottom: 52px;
   }
 
   .closing p {
@@ -47,10 +44,10 @@
 
   h2 {
     font-family: var(--serif);
-    font-size: clamp(40px, 5.5vw, 74px);
+    font-size: clamp(34px, 4.4vw, 56px);
     font-weight: 500;
     letter-spacing: 0;
-    line-height: 1.02;
+    line-height: 1.05;
     text-wrap: balance;
   }
 

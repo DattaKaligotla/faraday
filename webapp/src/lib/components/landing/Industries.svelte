@@ -30,10 +30,10 @@
 </script>
 
 <section id="industries">
-  <Gutter num="07" label="Industries">
+  <Gutter num="02" label="Industries">
     <div class="intro">
-      <h2 class="section-heading">Operational environments for the industries that underpin national strength.</h2>
-      <p class="section-copy">Faraday starts where physical systems, software, policy, and human judgment meet.</p>
+      <h2 class="section-heading">Manufacturing, logistics, energy, and defense.</h2>
+      <p class="section-copy">Physical operations with many systems of record, strict constraints, and clear safety gates.</p>
     </div>
 
     <div class="industry-grid">

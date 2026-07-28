@@ -1,32 +1,43 @@
 <script lang="ts">
   import Gutter from "./Gutter.svelte";
-  import Mod from "./Mod.svelte";
+
+  const points = [
+    {
+      label: "Connect",
+      text: "Read from ERP, MES, WMS, SCADA, ticketing, quality, and maintenance systems without giving agents production authority.",
+    },
+    {
+      label: "Simulate",
+      text: "Recreate the workflows, constraints, exceptions, approval paths, and failure modes that define how the operation runs.",
+    },
+    {
+      label: "Evaluate",
+      text: "Run agents and robot policies against realistic scenarios before deciding what can be deployed, escalated, or blocked.",
+    },
+  ];
 </script>
 
 <section id="model">
-  <Gutter num="01" label="The missing environment">
+  <Gutter num="01" label="What we build">
     <div class="grid">
       <div>
-        <h2 class="section-heading">
-          The hard part is not making an agent act. <Mod id="thesis-italic" as="span" class="accent"
-            >It is teaching it the business.</Mod
-          >
-        </h2>
+        <h2 class="section-heading">Enterprise simulations for agents and robots.</h2>
       </div>
 
       <div class="copy">
-        <Mod id="manifesto-1" as="p">
-          An enterprise operation is not just software. It is a web of goals, roles, constraints, habits, exceptions,
-          equipment, policies, and judgment calls.
-        </Mod>
-        <Mod id="manifesto-2" as="p">
-          Autonomous workers fail when they only see a task. They need environments that teach them what the task
-          affects, who depends on it, what rules cannot be broken, and when a person should be brought in.
-        </Mod>
-        <Mod id="manifesto-3" as="p">
-          Production is the wrong place for that learning to happen. Faraday gives AI agents and robots a faithful,
-          executable environment where they can practice, fail, improve, and prove readiness before deployment.
-        </Mod>
+        <p>
+          Faraday turns an enterprise operation into a secure simulation environment. Agents and robots can practice
+          decisions there before they are trusted with real work.
+        </p>
+
+        <div class="points">
+          {#each points as point}
+            <article>
+              <h3>{point.label}</h3>
+              <p>{point.text}</p>
+            </article>
+          {/each}
+        </div>
       </div>
     </div>
   </Gutter>
@@ -39,17 +50,41 @@
     gap: 72px;
   }
 
-  :global(.accent) {
-    color: var(--accent);
-    font-style: italic;
-  }
-
   .copy {
     display: grid;
-    gap: 22px;
+    gap: 26px;
     color: var(--ink-2);
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.62;
+  }
+
+  .points {
+    display: grid;
+    gap: 1px;
+    border: 1px solid var(--line-2);
+    background: var(--line);
+  }
+
+  article {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 28px;
+    padding: 20px;
+    background: var(--bg);
+  }
+
+  h3 {
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  article p {
+    color: var(--ink-2);
+    font-size: 14px;
+    line-height: 1.55;
   }
 
   @media (max-width: 860px) {
@@ -60,6 +95,11 @@
 
     .copy {
       font-size: 16px;
+    }
+
+    article {
+      grid-template-columns: 1fr;
+      gap: 8px;
     }
   }
 </style>

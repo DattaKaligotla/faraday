@@ -25,7 +25,7 @@
 <style>
   .section-shell {
     border-top: 1px solid var(--line);
-    padding: 86px 0;
+    padding: 58px 0;
   }
 
   .section-index {
@@ -51,7 +51,7 @@
 
   @media (max-width: 700px) {
     .section-shell {
-      padding: 56px 0;
+      padding: 44px 0;
     }
 
     .section-index {

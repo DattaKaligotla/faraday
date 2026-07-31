@@ -1,26 +1,19 @@
-<script lang="ts">
-  import "$lib/components/landing/landing.css";
-  import TopNav from "$lib/components/landing/TopNav.svelte";
-  import Hero from "$lib/components/landing/Hero.svelte";
-  import Manifesto from "$lib/components/landing/Manifesto.svelte";
-  import Industries from "$lib/components/landing/Industries.svelte";
-  import Footer from "$lib/components/landing/Footer.svelte";
-</script>
-
 <svelte:head>
-  <title>Faraday Cage - Simulation for autonomous operations</title>
-  <meta
-    name="description"
-    content="Faraday Cage builds private simulation environments where AI agents learn enterprise operations before deployment."
-  />
+  <title>faradaystack</title>
+  <meta name="description" content="faradaystack" />
 </svelte:head>
 
-<div class="faraday-landing">
-  <div class="faraday-landing-inner">
-    <TopNav />
-    <Hero />
-    <Manifesto />
-    <Industries />
-    <Footer />
-  </div>
-</div>
+<div class="page">faradaystack</div>
+
+<style>
+  .page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: #ffffff;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    line-height: 1;
+  }
+</style>

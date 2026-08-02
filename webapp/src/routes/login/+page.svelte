@@ -28,7 +28,7 @@
 </script>
 
 <svelte:head>
-  <title>Sign in - Faraday Cage</title>
+  <title>Sign in - Faradaystack</title>
 </svelte:head>
 
 <header class="top">
@@ -40,7 +40,7 @@
 <main class="main">
   <div class="card">
     <h1>Welcome back</h1>
-    <p class="sub">Sign in to your Faraday Cage account.</p>
+    <p class="sub">Sign in to your Faradaystack account.</p>
 
     <form onsubmit={submit} novalidate>
       <div>

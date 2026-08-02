@@ -39,10 +39,10 @@
 </script>
 
 <svelte:head>
-  <title>Request access - Faraday Cage</title>
+  <title>Request access - Faradaystack</title>
   <meta
     name="description"
-    content="Tell us about the Fortune 500 operations you want to turn into RL environments. We'll be in touch."
+    content="Tell us about the enterprise operations you want to simulate before deployment. We'll be in touch."
   />
 </svelte:head>
 
@@ -59,8 +59,8 @@
       <div class="body">
         <h1>Request access.</h1>
         <p class="lede">
-          We're onboarding design partners weekly. Tell us about the enterprise operations, agents, or robots you want
-          to train safely in RL environments. We'll be in touch within a couple of business days.
+          We're onboarding design partners weekly. Tell us about the enterprise operations you want to simulate before
+          deployment. We'll be in touch within a couple of business days.
         </p>
 
         {#if submitted}

@@ -33,7 +33,7 @@
   <Gutter num="02" label="Industries">
     <div class="intro">
       <h2 class="section-heading">Manufacturing, logistics, energy, and defense.</h2>
-      <p class="section-copy">Physical operations with many systems of record, strict constraints, and clear safety gates.</p>
+      <p class="section-copy">Operations with many systems of record, hard constraints, and real consequences.</p>
     </div>
 
     <div class="industry-grid">

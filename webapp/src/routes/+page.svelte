@@ -1,19 +1,24 @@
+<script lang="ts">
+  import "$lib/components/landing/landing.css";
+  import TopNav from "$lib/components/landing/TopNav.svelte";
+  import Hero from "$lib/components/landing/Hero.svelte";
+  import Industries from "$lib/components/landing/Industries.svelte";
+  import Footer from "$lib/components/landing/Footer.svelte";
+</script>
+
 <svelte:head>
-  <title>faradaystack</title>
-  <meta name="description" content="faradaystack" />
+  <title>Faradaystack - Simulation before production</title>
+  <meta
+    name="description"
+    content="Faradaystack builds private simulation environments where AI systems learn enterprise operations before deployment."
+  />
 </svelte:head>
 
-<div class="page">faradaystack</div>
-
-<style>
-  .page {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    background: #ffffff;
-    color: #000000;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px;
-    line-height: 1;
-  }
-</style>
+<div class="faraday-landing">
+  <div class="faraday-landing-inner">
+    <TopNav />
+    <Hero />
+    <Industries />
+    <Footer />
+  </div>
+</div>

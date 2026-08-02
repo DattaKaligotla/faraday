@@ -4,14 +4,14 @@
 
 <footer>
   <div class="closing">
-    <p>Faraday Cage</p>
-    <h2>Deploy agents only after they have learned the operation.</h2>
+    <p>faradaystack</p>
+    <h2>Train systems before they touch production.</h2>
   </div>
 
   <div class="bottom">
     <div class="left">
       <Logo size={16} variant="mark" />
-      <span>© 2026 Faraday Cage</span>
+      <span>© 2026 Faradaystack</span>
     </div>
     <div class="right">
       <a href="/request-access">Request access</a>

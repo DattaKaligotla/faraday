@@ -5,13 +5,13 @@
     class: cls = "",
   }: { size?: number; variant?: "mark" | "lockup"; class?: string } = $props();
 
-  const alt = $derived(variant === "lockup" ? "Faraday Cage" : "");
+  const alt = $derived(variant === "lockup" ? "Faradaystack" : "");
 </script>
 
 {#if variant === "lockup"}
   <span class="lockup {cls}" aria-label={alt} style:--logo-size={`${size}px`}>
     <img src="/logo-mark.svg" alt="" height={size} />
-    <span>faraday cage</span>
+    <span>faradaystack</span>
   </span>
 {:else}
   <img src="/logo-mark.svg" {alt} height={size} class={cls} style="width: auto; display: block;" />

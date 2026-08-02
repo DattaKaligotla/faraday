@@ -14,14 +14,13 @@
 </script>
 
 <nav>
-  <a href="/" aria-label="Faraday Cage homepage" class="brand-link">
+  <a href="/" aria-label="Faradaystack homepage" class="brand-link">
     <Mod id="brand" as="span" class="brand">
       <Logo size={22} variant="lockup" />
     </Mod>
   </a>
 
   <div class="nav-links">
-    <a href="#model">What we build</a>
     <a href="#industries">Industries</a>
     <a href="/login">Sign in</a>
     <a href="/request-access" class="cta">Request access</a>
@@ -41,7 +40,6 @@
 
 {#if menuOpen}
   <div class="mobile-menu">
-    <a href="#model" onclick={closeMenu}>What we build</a>
     <a href="#industries" onclick={closeMenu}>Industries</a>
     <a href="/login" onclick={closeMenu}>Sign in</a>
   </div>

@@ -14,7 +14,7 @@
 </script>
 
 <nav>
-  <a href="/" aria-label="Faradaystack homepage" class="brand-link">
+  <a href="/" aria-label="Faraday Cage homepage" class="brand-link">
     <Mod id="brand" as="span" class="brand">
       <Logo size={22} variant="lockup" />
     </Mod>

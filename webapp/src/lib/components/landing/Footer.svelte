@@ -4,14 +4,14 @@
 
 <footer>
   <div class="closing">
-    <p>faradaystack</p>
+    <p>Faraday Cage</p>
     <h2>Train systems before they touch production.</h2>
   </div>
 
   <div class="bottom">
     <div class="left">
       <Logo size={16} variant="mark" />
-      <span>© 2026 Faradaystack</span>
+      <span>© 2026 Faraday Cage</span>
     </div>
     <div class="right">
       <a href="/request-access">Request access</a>

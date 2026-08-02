@@ -39,7 +39,7 @@
 </script>
 
 <svelte:head>
-  <title>Request access - Faradaystack</title>
+  <title>Request access - Faraday Cage</title>
   <meta
     name="description"
     content="Tell us about the enterprise operations you want to simulate before deployment. We'll be in touch."

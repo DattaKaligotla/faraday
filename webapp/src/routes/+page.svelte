@@ -7,10 +7,10 @@
 </script>
 
 <svelte:head>
-  <title>Faradaystack - Simulation before production</title>
+  <title>Faraday Cage - Simulation before production</title>
   <meta
     name="description"
-    content="Faradaystack builds private simulation environments where AI systems learn enterprise operations before deployment."
+    content="Faraday Cage builds private simulation environments where AI systems learn enterprise operations before deployment."
   />
 </svelte:head>
 

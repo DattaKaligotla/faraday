@@ -11,7 +11,7 @@
       <div class="eyebrow">Faraday Cage</div>
       <h1 data-mod="h1">Simulation before production.</h1>
       <Mod id="hero-sub" as="p" class="sub">
-        Private environments where AI systems learn how an enterprise operates before they touch production systems.
+        Private RL environments where AI systems learn how an enterprise operates before they touch production systems.
       </Mod>
 
       <div class="actions">

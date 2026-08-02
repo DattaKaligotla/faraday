@@ -10,7 +10,7 @@
   <title>Faraday Cage - Simulation before production</title>
   <meta
     name="description"
-    content="Faraday Cage builds private simulation environments where AI systems learn enterprise operations before deployment."
+    content="Faraday Cage builds private RL environments where AI systems learn enterprise operations before deployment."
   />
 </svelte:head>
 

@@ -1,10 +1,10 @@
 <svelte:head>
-  <title>faradaycage.com</title>
-  <meta name="description" content="faradaycage.com" />
+  <title>faradaystack.com</title>
+  <meta name="description" content="faradaystack.com" />
 </svelte:head>
 
 <main class="holding-page">
-  <h1>faradaycage.com</h1>
+  <h1>faradaystack.com</h1>
 </main>
 
 <style>

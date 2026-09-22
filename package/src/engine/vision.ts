@@ -55,6 +55,7 @@ export interface ScreenshotResult {
  * for context, it just doesn't get a visual confirmation of its edits.
  */
 const MAX_NODES_FOR_CAPTURE = 1500;
+const VISION_CAPTURE_ENABLED = false;
 
 export async function captureViewport(opts: CaptureOptions = {}): Promise<ScreenshotResult | null> {
   // Disabled: `modern-screenshot` rasterizes the entire DOM via SVG foreignObject,
@@ -63,13 +64,14 @@ export async function captureViewport(opts: CaptureOptions = {}): Promise<Screen
   // in `buildPageContext`, so it can reason about layout and edit targets — it
   // just doesn't get a PNG to visually verify. Re-enable per-host with
   // `opts.scale` checks if you ever want this back.
-  return null;
-  // eslint-disable-next-line no-unreachable
+  if (!VISION_CAPTURE_ENABLED) return null;
   if (typeof document === "undefined" || typeof window === "undefined") return null;
+  if (document.getElementsByTagName("*").length > MAX_NODES_FOR_CAPTURE) return null;
 
   const { scale, hideSelector, maxBytes } = { ...DEFAULT_OPTS, ...opts };
+  const rootSelector = opts.rootSelector;
   const root: HTMLElement =
-    ((opts.rootSelector ? document.querySelector(opts.rootSelector) : document.body) as HTMLElement | null) ??
+    ((rootSelector ? document.querySelector(rootSelector) : document.body) as HTMLElement | null) ??
     document.body;
   if (!root) return null;
 

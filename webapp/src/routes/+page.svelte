@@ -42,7 +42,7 @@
   <title>Faraday Industrial — Precision machining and fabrication</title>
   <meta
     name="description"
-    content="Precision machining, tooling, welded fabrication, and industrial repair support from prototype through short-run production."
+    content="Faraday Industrial is a San Francisco-based company providing precision machining, tooling, welded fabrication, and industrial repair support."
   />
   <meta property="og:title" content="Faraday Industrial — Built for work that cannot wait" />
   <meta
@@ -82,7 +82,7 @@
   <main>
     <section id="top" class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
-        <p class="eyebrow"><span></span> Precision manufacturing partner</p>
+        <p class="eyebrow"><span></span> San Francisco-based manufacturing company</p>
         <h1 id="hero-title">Built for the work<br />that cannot wait.</h1>
         <p class="hero-copy">
           Machined parts, fixtures, welded assemblies, and practical shop support for industrial teams that need to keep
@@ -224,7 +224,7 @@
       <span class="brand-mark" aria-hidden="true"><span></span></span>
       <span>FARADAY <b>INDUSTRIAL</b></span>
     </a>
-    <p>Precision machining / fabrication / industrial support</p>
+    <p>San Francisco, California / precision machining / fabrication</p>
     <p>© {new Date().getFullYear()} Faraday</p>
   </footer>
 </div>

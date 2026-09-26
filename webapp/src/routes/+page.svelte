@@ -82,14 +82,14 @@
   <main>
     <section id="top" class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
-        <p class="eyebrow"><span></span> San Francisco-based manufacturing company</p>
+        <p class="eyebrow"><span></span> San Francisco manufacturing company</p>
         <h1 id="hero-title">Built for the work<br />that cannot wait.</h1>
         <p class="hero-copy">
-          Machined parts, fixtures, welded assemblies, and practical shop support for industrial teams that need to keep
-          moving.
+          We make custom metal parts, fixtures, and welded assemblies for teams that need dependable work and clear
+          communication.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#quote">Start an RFQ <ArrowRight size={17} weight="bold" /></a>
+          <a class="button primary" href="#quote">Request a quote <ArrowRight size={17} weight="bold" /></a>
           <a class="text-link" href="#capabilities">Explore capabilities <ArrowRight size={15} /></a>
         </div>
       </div>
@@ -108,10 +108,7 @@
         <p class="section-label">What we make</p>
         <div>
           <h2 id="capabilities-title">The parts and tooling that keep production moving.</h2>
-          <p>
-            We take on the awkward, urgent, and detail-heavy work that sits between an engineering need and a finished
-            piece of hardware.
-          </p>
+          <p>From one-off parts to short production runs, we turn your drawings or samples into useful hardware.</p>
         </div>
       </div>
 
@@ -139,7 +136,7 @@
         </p>
         <ul>
           <li><Check size={16} weight="bold" /> Clear scope before production</li>
-          <li><Check size={16} weight="bold" /> Practical DFM feedback</li>
+          <li><Check size={16} weight="bold" /> Practical design advice</li>
           <li><Check size={16} weight="bold" /> Inspection matched to the job</li>
         </ul>
       </div>
@@ -212,7 +209,7 @@
           class="button quote-button"
           href="mailto:hello@faradaystack.com?subject=Manufacturing%20RFQ&body=Project%20summary%3A%0A%0AQuantity%3A%0AMaterial%3A%0ATarget%20date%3A%0A"
         >
-          Send an RFQ <ArrowUpRight size={18} weight="bold" />
+          Email your project <ArrowUpRight size={18} weight="bold" />
         </a>
         <span>hello@faradaystack.com</span>
       </div>
